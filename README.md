@@ -55,7 +55,7 @@ Legend
 | Anisotropic                   | :heavy_check_mark: |                                                                       |                                                                                      |
 | Mipmaps                       | :heavy_check_mark: |                                                                       |                                                                                      |
 | Svg                           | :heavy_check_mark: |                                                                       |                                                                                      |
-| Channel Packing               | :lemon:            |                                                                       | [Zylann's Channel Packer](hhttps://github.com/Zylann/godot_channel_packer_plugin)    |
+| Channel Packing               | :lemon:            |                                                                       | [Zylann's Channel Packer](https://github.com/Zylann/godot_channel_packer_plugin)     |
 | Generate layered Textures     | :heavy_check_mark: |                                                                       |                                                                                      |
 | Generate Texture Atlas        | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Shaders**                   |                    |                                                                       |                                                                                      |
@@ -72,7 +72,7 @@ Legend
 | **3D Systems**                |                    |                                                                       |                                                                                      |
 | Heightmap Terrain             | :lemon:            |                                                                       | [Zylann's heightmap terrain addon](https://github.com/Zylann/godot_heightmap_plugin) |
 | Waterway System               | :lemon:            |                                                                       | [Arnklit's Waterways](https://github.com/Arnklit/Waterways)                          |
-| Navigation                    | jack_o_lantern:    | [Insight](03_godot-4/navigation.md)                                   | (see insight)                                                                        |
+| Navigation                    | :jack_o_lantern:   | [Insight](03_godot-4/navigation.md)                                   | (see insight)                                                                        |
 | **2D Systems**                |                    |                                                                       |                                                                                      |
 | Tile map editor               | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Physics**                   |                    |                                                                       |                                                                                      |
