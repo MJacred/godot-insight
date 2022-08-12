@@ -19,7 +19,7 @@ The information in this reposotory may be partially or completely incorrect. Som
 Legend
 * :heavy_check_mark: - yes
 * :no_entry_sign: - no
-* :lemon: - yes, but but as addon
+* :lemon: - yes, but as addon
   * listed in the **Workaround** column
   * lists the most well-known one
 * :jack_o_lantern: - yes, but…
@@ -76,12 +76,18 @@ Legend
 | **2D Systems**                |                    |                                                                       |                                                                                      |
 | Tile map editor               | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Physics**                   |                    |                                                                       |                                                                                      |
+| Custom Engine                 | :heavy_check_mark: |                                                                       |                                                                                      |
+| Bullet Engine                 | :lemon:            |                                                                       |                                                                                      |
+| Static Body                   | :heavy_check_mark: |                                                                       |                                                                                      |
+| Dynamic Body                  | :heavy_check_mark: |                                                                       |                                                                                      |
+| Area                          | :heavy_check_mark: |                                                                       |                                                                                      |
+| Inverse Kinematics            | :heavy_check_mark: |                                                                       |                                                                                      |
+| Wobble Physics                | :heavy_check_mark: | [PR for Bullet](https://github.com/godotengine/godot/pull/64281)      |                                                                                      |
 | **Screen**                    |                    |                                                                       |                                                                                      |
 | Mid- and Post-processing      | :heavy_check_mark: |                                                                       |                                                                                      |
 | **UI**                        |                    |                                                                       |                                                                                      |
 | Theming                       | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Animation**                 |                    |                                                                       |                                                                                      |
-| Inverse Kinematics            | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Code**                      |                    |                                                                       |                                                                                      |
 | Scripting: GDScript           | :heavy_check_mark: |                                                                       |                                                                                      |
 | Language bindings             | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0), Rust, etc.                       |                                                                                      |
