@@ -30,6 +30,9 @@ Legend
 | ----------------------------- |:------------------:| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------|
 | **Internationalization**      |                    |                                                                       |                                                                                      |
 | gettext                       | :heavy_check_mark: |                                                                       |                                                                                      |
+| **Fonts**                     |                    |                                                                       |                                                                                      |
+| .ttf                          | :heavy_check_mark: |                                                                       |                                                                                      |
+| .woff2                        | :heavy_check_mark: |                                                                       |                                                                                      |
 | text in left-to-right         | :heavy_check_mark: |                                                                       |                                                                                      |
 | text in right-to-left         | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Supported Platforms**       |                    |                                                                       |                                                                                      |
@@ -47,7 +50,14 @@ Legend
 | OpenGL                        | :heavy_check_mark: |                                                                       |                                                                                      |
 | Direct3D 12                   | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Import**                    |                    |                                                                       |                                                                                      |
+| gltf2                         | :heavy_check_mark: |                                                                       |                                                                                      |
+| fbx                           | :heavy_check_mark: |                                                                       |                                                                                      |
+| blender                       | :heavy_check_mark: |                                                                       |                                                                                      |
+| material                      | :heavy_check_mark: |                                                                       |                                                                                      |
+| 3D skeleton / rig             | :heavy_check_mark: |                                                                       |                                                                                      |
+| 3D animation                  | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Export**                    |                    |                                                                       |                                                                                      |
+| gltf2                         | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Color**                     |                    |                                                                       |                                                                                      |
 | Color Profile Managment (ICC) | :no_entry_sign:    | [proposal](https://github.com/godotengine/godot-proposals/issues/903) |                                                                                      |
 | sRGB                          | :heavy_check_mark: |                                                                       |                                                                                      |
@@ -65,19 +75,25 @@ Legend
 | Physically-based rendering    | :heavy_check_mark: |                                                                       |                                                                                      |
 | Visual Shader Node System     | :heavy_check_mark: |                                                                       |                                                                                      |
 | Decals                        | :heavy_check_mark: |                                                                       |                                                                                      |
+| Volumetric Fog                | :heavy_check_mark: |                                                                       |                                                                                      |
+| Reflection Probes             | :heavy_check_mark: |                                                                       |                                                                                      |
+| **3D Mesh**                   |                    |                                                                       |                                                                                      |
+| Shape keys / morph targes     | :heavy_check_mark: | Godot calls them "Blendshapes"                                        |                                                                                      |
 | **Lighting**                  |                    |                                                                       |                                                                                      |
 | Directional Light             | :heavy_check_mark: |                                                                       |                                                                                      |
 | Spot Light                    | :heavy_check_mark: |                                                                       |                                                                                      |
 | Omni Light                    | :heavy_check_mark: |                                                                       |                                                                                      |
 | Area Light                    | :no_entry_sign:    |                                                                       |                                                                                      |
 | Bake lighting                 | :heavy_check_mark: |                                                                       |                                                                                      |
-| Global Illumination           | :heavy_check_mark: |                                                                       |                                                                                      |
 | 2D lights and normal maps     | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Audio**                     |                    |                                                                       |                                                                                      |
 | 3D                            | :heavy_check_mark: |                                                                       |                                                                                      |
 | 2D                            | :heavy_check_mark: |                                                                       |                                                                                      |
 | Bus Management                | :heavy_check_mark: |                                                                       |                                                                                      |
 | Audio Effects                 | :heavy_check_mark: |                                                                       |                                                                                      |
+| Midi                          | :heavy_check_mark: |                                                                       |                                                                                      |
+| .wav                          | :heavy_check_mark: |                                                                       |                                                                                      |
+| .ogg                          | :heavy_check_mark: |                                                                       |                                                                                      |
 | **3D Systems**                |                    |                                                                       |                                                                                      |
 | Heightmap Terrain             | :lemon:            |                                                                       | [Zylann's heightmap terrain addon](https://github.com/Zylann/godot_heightmap_plugin) |
 | Waterway System               | :lemon:            |                                                                       | [Arnklit's Waterways](https://github.com/Arnklit/Waterways)                          |
@@ -100,12 +116,26 @@ Legend
 | HLOD                          | :heavy_check_mark: |                                                                       |                                                                                      |
 | Mesh                          | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Screen**                    |                    |                                                                       |                                                                                      |
-| Mid- and Post-processing      | :heavy_check_mark: |                                                                       |                                                                                      |
+| Mid- and Post-processing      |                    |                                                                       |                                                                                      |
+| ├── Color Adjustment          | :heavy_check_mark: | Brightness, Saturation, Contrast, Color Correction (via Texture)      |                                                                                      |
+| ├── Ambient Light             | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├── Ambient Occlusion         | :heavy_check_mark: | Screen-Space Ambient Occlusion                                        |                                                                                      |
+| ├── Tonemapping               | :heavy_check_mark: | modes (Linear, Reinhardt, Filmic, ACES), exposure, whitepoint         |                                                                                      |
+| ㅤㅤㅤ└── auto exposure         | :heavy_check_mark: | luminance, intensity, speed                                           |                                                                                      |
+| ├── Height Fog                | :heavy_check_mark: | aerial perspective, density, color, brightness, sun piercing          |                                                                                      |
+| ├── Glow                      | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├── Boom                      | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├── Global Illumination       | :heavy_check_mark: | Signed Distance Field Global Illumination (SDFGI)                     |                                                                                      |
+| ├── Sky                       | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├── Indirect Lighting         | :heavy_check_mark: | Screen-Space Indirect Lighting                                        |                                                                                      |
+| └── Reflections               | :heavy_check_mark: | Screen-Space Reflections                                              |                                                                                      |
 | **UI**                        |                    |                                                                       |                                                                                      |
 | Theming                       | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Animation**                 |                    |                                                                       |                                                                                      |
 | Vertex Animation              | :heavy_check_mark: |                                                                       |                                                                                      |
 | Blendshape/Morph Animation    | :heavy_check_mark: |                                                                       |                                                                                      |
+| **Particle System**           |                    |                                                                       |                                                                                      |
+| Attractors                    | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Code**                      |                    |                                                                       |                                                                                      |
 | Scripting: GDScript           | :heavy_check_mark: |                                                                       |                                                                                      |
 | Language bindings             | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0), Rust, etc.                       |                                                                                      |
@@ -118,6 +148,9 @@ Legend
 | Network Profiler              | :heavy_check_mark: |                                                                       |                                                                                      |
 | Version Control               | :heavy_check_mark: |                                                                       |                                                                                      |
 | 64-bit (for large world)      | :heavy_check_mark: | https://gist.github.com/Calinou/ceb6d24b16d85bc47f9c5de9c9ae341d      |                                                                                      |
+| Directed Graph Dialogsystem   | :lemon:            |                                                                       | [coppolaemilio's dialogic](https://github.com/coppolaemilio/dialogic)                |
+| Timer                         | :heavy_check_mark: |                                                                       |                                                                                      |
+| Tweening                      | :heavy_check_mark: |                                                                       |                                                                                      |
 
 
 # Awesome Resources
