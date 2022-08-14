@@ -16,8 +16,21 @@ The information in this reposotory may be partially or completely incorrect. Som
 
 … is currently in the Alpha version available. Personally, I expect the Beta version coming in October 2022 and the official stable version in mid 2023. Time will tell!
 
-Initially, it was only about a new renderer (Vulkan), but feedback made clear that a fundamental change was in order. ([source](https://www.reddit.com/r/godot/comments/on0hzn/comment/h5pgoi5/?utm_source=reddit&utm_medium=web2x&context=3)).  
-Therefore, Godot 4 is mostly a complete code/system restructure to allow more modern features to be implemented more easily and therefore more quickly. Fundamental changes always carry compatibility breaking changes. Thus, breaking as many as possible in one fell swoop would be best. And they try to help migrating projects from Godot 3 to 4 with a converter tool.  
-Because changing the whole architecture of the engine takes a long time (it does for any project), there's time for many new features made by contributors, making Godot 4 also feature richer.
+Initially, it was only about a new renderer (Vulkan), but feedback made clear that a fundamental change was in order ([source](https://www.reddit.com/r/godot/comments/on0hzn/comment/h5pgoi5/?utm_source=reddit&utm_medium=web2x&context=3)). Therefore, Godot 4 is mostly a complete code/system restructure, to allow more modern features to be implemented more easily and consequently more quickly.  
+Fundamental changes always break compatibility with a previous version. So, identifying desired new features (and changes of existing ones) helps with deciding on the target architecture. Thus, adding as many needed compatibility breaking changes in one fell swoop is strongly desired. And because changing the code structure always takes a long time, new features find their way in. Which in turn makes Godot 4 also more feature rich.  
+To make things easier for existing projects, there's a converter tool in the making, helping developers to migrate their projects from Godot 3 to 4.  
 
 Read about Godot 4 Features [here](03_godot-4/_features.md).
+
+
+# Awesome Resources
+
+* https://github.com/godotengine/awesome-godot 
+* https://project-awesome.org/godotengine/awesome-godot
+* https://github.com/hto/awesome-godot
+* https://godotshaders.com/
+
+
+# Games and Software made with Godot
+
+https://godotengine.org/showcase

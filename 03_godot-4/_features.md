@@ -138,16 +138,3 @@ Legend
 | Directed Graph Dialogsystem   | :lemon:            |                                                                       | [coppolaemilio's dialogic](https://github.com/coppolaemilio/dialogic)                |
 | Timer                         | :heavy_check_mark: |                                                                       |                                                                                      |
 | Tweening                      | :heavy_check_mark: |                                                                       |                                                                                      |
-
-
-# Awesome Resources
-
-* https://github.com/godotengine/awesome-godot 
-* https://project-awesome.org/godotengine/awesome-godot
-* https://github.com/hto/awesome-godot
-* https://godotshaders.com/
-
-
-# Games and Software made with Godot
-
-https://godotengine.org/showcase
