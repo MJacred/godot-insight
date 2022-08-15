@@ -65,7 +65,7 @@ Legend
 | Volumetric Fog                | :heavy_check_mark: |                                                                       |                                                                                      |
 | Reflection Probes             | :heavy_check_mark: |                                                                       |                                                                                      |
 | **3D Mesh**                   |                    |                                                                       |                                                                                      |
-| Shape keys / morph targes     | :heavy_check_mark: | Godot calls them "Blendshapes"                                        |                                                                                      |
+| Shape keys / Blend Shapes     | :heavy_check_mark: | [Insight](../05_features-in-detail/blend_shapes.md)                   |                                                                                      |
 | **Lighting**                  |                    |                                                                       |                                                                                      |
 | Directional Light             | :heavy_check_mark: |                                                                       |                                                                                      |
 | Spot Light                    | :heavy_check_mark: |                                                                       |                                                                                      |
@@ -84,7 +84,7 @@ Legend
 | **3D Systems**                |                    |                                                                       |                                                                                      |
 | Heightmap Terrain             | :lemon:            |                                                                       | [Zylann's heightmap terrain addon](https://github.com/Zylann/godot_heightmap_plugin) |
 | Waterway System               | :lemon:            |                                                                       | [Arnklit's Waterways](https://github.com/Arnklit/Waterways)                          |
-| Navigation                    | :jack_o_lantern:   | [Insight](../03_godot-4/navigation.md)                                | (see insight)                                                                        |
+| Navigation                    | :jack_o_lantern:   | [Insight](../04_systems/navigation.md)                                | (see insight)                                                                        |
 | **2D Systems**                |                    |                                                                       |                                                                                      |
 | Tile map editor               | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Physics**                   |                    |                                                                       |                                                                                      |
@@ -120,9 +120,13 @@ Legend
 | Theming                       | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Animation**                 |                    |                                                                       |                                                                                      |
 | Vertex Animation              | :heavy_check_mark: |                                                                       |                                                                                      |
-| Blendshape/Morph Animation    | :heavy_check_mark: |                                                                       |                                                                                      |
-| **Particle System**           |                    |                                                                       |                                                                                      |
-| Attractors                    | :heavy_check_mark: |                                                                       |                                                                                      |
+| Blend shape Animation         | :heavy_check_mark: |                                                                       |                                                                                      |
+| **Particle System**           |                    | [Insight](../04_systems/particles.md)                                 |                                                                                      |
+| Attractors                    | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
+| Manual emission               | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/41810)                 |                                                                                      |
+| Subemitters                   | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/41810)                 |                                                                                      |
+| Collision                     | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
+| Baked SDF Collision           | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
 | **Code**                      |                    |                                                                       |                                                                                      |
 | Scripting: GDScript           | :heavy_check_mark: |                                                                       |                                                                                      |
 | Language bindings             | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0), Rust, etc.                       |                                                                                      |

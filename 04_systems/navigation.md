@@ -3,8 +3,36 @@
 > Godot uses [recastnavigation](https://github.com/recastnavigation/recastnavigation)'s **Recast** for creating the NavigationMesh.
 > But Godot uses RVO2 for the **Detour**.
 
+TODO: https://github.com/godotengine/godot-proposals/labels/topic%3Anavigation
+
+
+## Features
+
+### Obstacles
+
+* These are actually agents, that just don't move. Therefore, they only have a height and radius. [source](https://github.com/godotengine/godot/blob/master/scene/3d/navigation_obstacle_3d.cpp)
+
+
+### Baking
+
+control
+* Bake Area: https://github.com/godotengine/godot/pull/62348
+  * cherry-picked Godot 3.5
+
+types
+* heightmap and GridMap: https://github.com/godotengine/godot/pull/63932
+  * cherry-picked Godot 3.6
+
 
 ## Missing Features that might trouble you
+
+
+### No Navigation (jump) links
+
+**is work in progress**
+
+> Navigation links allow you to inform the navigation system about routes that don't involve traveling the surface of the navigation mesh. This can include things like jumping off surfaces, teleporters, rappelling points, or other game specific activities.  
+> ([source](https://github.com/godotengine/godot/pull/63479))
 
 
 ### Cannot mark areas on NavigationRegion(s) as water, ground, etc.
@@ -37,6 +65,12 @@ But this can be worked around using custom code updating the target position and
 
 **Workaround**:  
 Hinted possible workaround: https://github.com/godotengine/godot-proposals/issues/1966#issuecomment-1014019912
+
+
+## Performance
+
+wip
+* limit pathfinds per physics tick: https://github.com/godotengine/godot/pull/62745
 
 
 # Alternative to NavigationServer
