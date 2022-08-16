@@ -18,6 +18,8 @@ TODO: https://github.com/godotengine/godot-proposals/labels/topic%3Anavigation
 control
 * Bake Area: https://github.com/godotengine/godot/pull/62348
   * cherry-picked Godot 3.5
+* Bake on import: `ImporterMesh::create_navigation_mesh()` ([source](https://github.com/godotengine/godot/blob/master/scene/resources/importer_mesh.cpp)), your mesh must have `-navmesh` suffix and the original mesh is discarded
+
 
 types
 * heightmap and GridMap: https://github.com/godotengine/godot/pull/63932
