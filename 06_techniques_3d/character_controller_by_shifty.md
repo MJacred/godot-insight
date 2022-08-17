@@ -11,6 +11,7 @@ Before committing to building a character controller in Godot 3.2.x, it is neces
 * There exist fundamental flaws in said implementation that mean a perfect system is not feasible to attain
 * Common issues include:
     * Incorrect normal output from collision queries
+        * https://github.com/godotengine/godot/issues/47185
     * Incorrect distance output from collision queries
     * Colliders catching on parallel edges (ex. checkerboard floor colliders)
     * Jittery collision response that scales with object size (becomes more extreme for non unit objects, ex. a 300*5*5 box)
@@ -47,16 +48,18 @@ So, given the above, the last remaining object is to use RigidBody.
 * Worry not; as dire as it may seem, RigidBody can actually be turned into a win:
     * For one, you immediately get decent depentration for free
         * This helps mitigate most of the issues that usually plague kinematic systems by amortizing their effects across multiple frames
-        * Some issues are fundamentally unavoidable, but can be worked around at a design level (see below)
+        * Some issues are fundamentally unavoidable, but can be worked around at a level design (see below)
     * Two, you get interaction with physics objects for free
         * No more worrying about how to bridge the gap between a physics-blind kinematic player and simulated environmental objects
     * Three, you actually have far more control than you think
         * RigidBody can operate in four modes; Rigid, Kinematic, Static, and Character
+            * https://github.com/godotengine/godot/issues/46712 (has workaround, see below)
             * Rigid, Kinematic and Static operate like their respective shape classes
             * Character is of particular note: it acts like a Rigid shape, but doesn't rotate
                 * Your character can push and be pushed, but won't topple over
         * RigidBody has a 'Use custom integrator' property - this is the key to the whole house of cards
             * Enabling this will disable all built-in force integration (i.e. gravity, air friction)
+                * should work around: https://github.com/godotengine/godot/issues/46712
             * What remains is the collision logic, a.k.a. the automatic depenetration mentioned in point #1
             * By overriding _integrate_forces in a custom script on your RigidBody, you gain total control over its physics state via the PhysicsDirectBodyState param
                 * This includes moving it, changing its velocity, applying forces, and more
@@ -102,7 +105,7 @@ Enter the cylinder.
     * And many more
 
 
-## Design Level Workarounds
+## Level Design Workarounds
 
 As mentioned above, some issues are unavoidable, but can be mitigated by instead avoiding them at design time:
 * Large colliders are unstable
@@ -113,4 +116,3 @@ As mentioned above, some issues are unavoidable, but can be mitigated by instead
 * Unstable floor results make my 'is grounded' flag jitter
     * This seems to be down to the collision margin system
     * Use a rolling window (2-3 frames should be sufficient) that folds down to a single bool using OR to de-noise the floor check
-
