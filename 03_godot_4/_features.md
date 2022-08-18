@@ -65,7 +65,7 @@ Legend
 | Volumetric Fog                | :heavy_check_mark: |                                                                       |                                                                                      |
 | Reflection Probes             | :heavy_check_mark: |                                                                       |                                                                                      |
 | **3D Mesh**                   |                    |                                                                       |                                                                                      |
-| Shape keys / Blend Shapes     | :heavy_check_mark: | [Insight](../05_features-in-detail/blend_shapes.md)                   |                                                                                      |
+| Shape keys / Blend Shapes     | :heavy_check_mark: | [Insight](../05_features_in_detail/blend_shapes.md)                   |                                                                                      |
 | **Lighting**                  |                    |                                                                       |                                                                                      |
 | Directional Light             | :heavy_check_mark: |                                                                       |                                                                                      |
 | Spot Light                    | :heavy_check_mark: |                                                                       |                                                                                      |
