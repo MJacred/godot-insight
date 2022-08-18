@@ -1,13 +1,10 @@
 # ProxyTexture
 
-> Is something used internally and should normally not be used directly by users. ([source](https://github.com/godotengine/godot/pull/36275#issuecomment-1115095707))
-
-
 **Researched or last verified:** February 2020
 
 
 **ProxyTexture is still exposed, so why listed here?**  
-As it's nature is mostly internal, it might get unexposed soon: https://github.com/godotengine/godot/pull/36275
+As its nature is mostly internal, it will get unexposed soon. And deleted, if it becomes obsolete: https://github.com/godotengine/godot/pull/36275
 
 
 ## Brief Description
