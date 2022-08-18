@@ -2,7 +2,7 @@
 
 This repository contains informations about the [Godot Game Engine](https://github.com/godotengine/godot).
 
-Sometimes, there's info on the Engine that currently has no place on the official github repositories or the web page, e.g. documentation on unexposed classes or too technical information.
+Sometimes, there's info on the Engine that currently has no place on the official github repositories or the web page, e.g. documentation on unexposed classes or too technical information. Consequently, this is no replacement for Godot's official documentation, but more of an addition that may or may not interest new or most Godot users.
 
 My personal interest lies in 3D, so that will be my main focus. If you want to share about 2D, please see the CONTRIBUTING guidelines and open an issue or pull request!
 
@@ -10,6 +10,17 @@ My personal interest lies in 3D, so that will be my main focus. If you want to s
 # Disclaimer
 
 The information in this reposotory may be partially or completely incorrect. Some info is from hearing, vague memory or reading and misunderstanding code. In case you find a mistake, you can open an Issue and state corrections (with source that backs your claim).
+
+
+# Content on this Repository
+
+* internal class documentation
+* exposed class documentation with a lot of technical implementation details
+* systems and features in Godot with as many details as possible
+* background info and references for most common features users implement all the time, e.g. a 3D Third Person Character Controller, moving platforms, etc.
+* finishing and exporting a game
+
+Information that is polished and fits into an official Godot space (API documentation, tutorial, etc.), will be contributed to said official space.
 
 
 # Godot 4
@@ -20,7 +31,7 @@ Initially, it was only about a new renderer (Vulkan), but feedback made clear th
 Fundamental changes always break compatibility with a previous version. So, identifying desired new features (and changes of existing ones) helps with deciding on the target architecture. Thus, adding as many needed compatibility breaking changes in one fell swoop is strongly desired. And because changing the code structure always takes a long time, new features find their way in. Which in turn makes Godot 4 also more feature rich.  
 To make things easier for existing projects, there's a converter tool in the making, helping developers to migrate their projects from Godot 3 to 4.  
 
-Read about Godot 4 Features [here](03_godot-4/_features.md).
+Read about Godot 4 Features [here](03_godot_4/_features.md).
 
 
 # Awesome Resources
