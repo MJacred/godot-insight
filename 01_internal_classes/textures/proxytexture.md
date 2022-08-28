@@ -3,10 +3,6 @@
 **Researched or last verified:** February 2020
 
 
-**ProxyTexture is still exposed, so why listed here?**  
-As its nature is mostly internal, it will get unexposed soon. And deleted, if it becomes obsolete: https://github.com/godotengine/godot/pull/36275
-
-
 ## Brief Description
 
 Represents and references a [Texture2D], which can be changed anytime, and has its own [RID].
