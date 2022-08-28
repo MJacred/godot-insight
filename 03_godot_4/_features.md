@@ -132,7 +132,8 @@ Legend
 | Waterway System                | :lemon:            |                                                                       | [Arnklit's Waterways](https://github.com/Arnklit/Waterways)                          |
 | Navigation                     | :jack_o_lantern:   | [Insight](../04_systems/navigation.md)                                | (see insight)                                                                        |
 | Scattering Objects in Area     | :lemon:            |                                                                       | [HungryProton's Scatter](https://github.com/HungryProton/scatter)                    |
-| Scattering Objects manually    | :lemon:            | Godot 3                                                               | [Zylann's Scene scattering tool](https://github.com/Zylann/godot_scatter_plugin)     |
+| Placing Objects indiviually    | :lemon:            | Godot 3                                                               | [Zylann's Scene scattering tool](https://github.com/Zylann/godot_scatter_plugin)     |
+| Painting Objects on surfaces   | :lemon:            | Godot 3.5; HLOD via octree spatial partitioning; for Singleplayer Games; probably next in Godot 4.1 | [Dreadpon's Spatial Gardener](https://github.com/dreadpon/godot_spatial_gardener) |
 | Procedural 3D Model Generation | :lemon:            | Godot 3                                                               | [3D Generator by ProtonGraph](https://github.com/protongraph/protongraph)            |
 | Vertex Painting                | :lemon:            | Godot 3                                                               | [tomanski's Vertex Painter](https://github.com/tomankirilov/VPainter)                |
 | Texture Painting               | :lemon:            | Godot 3.4                                                             | [Edouard's Mesh Painter](https://github.com/StrayEddy/GodotPlugin-MeshPainter)       |
