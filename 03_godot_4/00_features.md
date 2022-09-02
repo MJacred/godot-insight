@@ -32,6 +32,7 @@ Legend
 | File Formats                   | :heavy_check_mark: | .ttf, .otf, .woff1, .woff2                                            |                                                                                      |
 | text in left-to-right          | :heavy_check_mark: |                                                                       |                                                                                      |
 | text in right-to-left          | :heavy_check_mark: |                                                                       |                                                                                      |
+| FreeType sub-pixel anti-aliasing | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/64422)               |                                                                                      |
 | **Supported Platforms**        |                    |                                                                       |                                                                                      |
 | Desktop                        | :heavy_check_mark: | Windows, macOS, Linux, UWP, and *BSD                                  |                                                                                      |
 | Consoles                       | :heavy_check_mark: | [Insight](../99_export/consoles.md)                                   |                                                                                      |
@@ -118,10 +119,10 @@ Legend
 | APIs                           | :package:          |                                                                       |                                                                                      |
 | ├─ Windows                     | :heavy_check_mark: | WASAPI                                                                |                                                                                      |
 | ├─ macOS                       | :heavy_check_mark: | CoreAudio                                                             |                                                                                      |
-| ├─ Linux/BSD                   | :heavy_check_mark: | PulseAudio/ALSA                                                       |                                                                                      |
-| ├─ Nintendo Switch             | :heavy_check_mark: | should be PulseAudio/ALSA, (operating system is based on BSD)         |                                                                                      |
-| ├─ PlayStation 4               | :heavy_check_mark: | should be PulseAudio/ALSA, (operating system is based on BSD)         |                                                                                      |
-| ├─ PlayStation 5               | :heavy_check_mark: | should be PulseAudio/ALSA, (should still be based on BSD)             |                                                                                      |
+| ├─ Linux/BSD                   | :heavy_check_mark: | PulseAudio/ALSA/sndio                                                 |                                                                                      |
+| ├─ Nintendo Switch             | :heavy_check_mark: | should be PulseAudio/ALSA/sndio (operating system is based on BSD)    |                                                                                      |
+| ├─ PlayStation 4               | :heavy_check_mark: | should be PulseAudio/ALSA/sndio, (operating system is based on BSD)   |                                                                                      |
+| ├─ PlayStation 5               | :heavy_check_mark: | should be PulseAudio/ALSA/sndio, (should still be based on BSD)       |                                                                                      |
 | ├─ Xbox Series X/S             | :heavy_check_mark: | WASAPI                                                                |                                                                                      |
 | ├─ iOS                         | :heavy_check_mark: | CoreAudio                                                             |                                                                                      |
 | └─ Android                     | :heavy_check_mark: | probably PulseAudio/ALSA (as Android is based on Linux)               |                                                                                      |
@@ -169,7 +170,7 @@ Legend
 | View Frustum Culling           | :heavy_check_mark: |                                                                       |                                                                                      |
 | Automatic Occlusion Culling    | :no_entry_sign:    |                                                                       |                                                                                      |
 | Portal Occlusion Culling       | :heavy_check_mark: |                                                                       |                                                                                      |
-| HLOD                           | :heavy_check_mark: |                                                                       |                                                                                      |
+| HLOD                           | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/48847)                 |                                                                                      |
 | Mesh                           | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Screen**                     |                    |                                                                       |                                                                                      |
 | Mid- and Post-processing       | :package:          |                                                                       |                                                                                      |
@@ -190,6 +191,7 @@ Legend
 | **Animation**                  |                    |                                                                       |                                                                                      |
 | Vertex Animation               | :heavy_check_mark: |                                                                       |                                                                                      |
 | Blend shape Animation          | :heavy_check_mark: |                                                                       |                                                                                      |
+| Animation Retargeting          | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Particle System**            |                    | [Insight](../04_systems/particles.md)                                 |                                                                                      |
 | Attractors                     | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
 | Manual emission                | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/41810)                 |                                                                                      |
@@ -199,7 +201,7 @@ Legend
 | Effekseer Support              | :lemon:            | Godot 3, [Godot 4 is planned](https://github.com/effekseer/EffekseerForGodot4) | [by Effekseer](https://github.com/effekseer/EffekseerForGodot3)             |
 | **Code**                       |                    |                                                                       |                                                                                      |
 | Scripting: GDScript            | :heavy_check_mark: |                                                                       |                                                                                      |
-| Language bindings              | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0), Rust, etc.                       |                                                                                      |
+| Language bindings              | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0 Mono; .NET 6), Rust, etc.          |                                                                                      |
 | **Networking**                 |                    |                                                                       |                                                                                      |
 | **Cinematics**                 |                    |                                                                       |                                                                                      |
 | MovieWriter                    | :heavy_check_mark: | record **non-real-time** video footage                                |                                                                                      |
