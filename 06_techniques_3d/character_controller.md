@@ -15,7 +15,39 @@ Related Addons
 * https://github.com/godot-extended-libraries/godot-interpolated-camera3d
 
 
-# Shifty's Manifesto - climbing stairs
+# Camera
+
+* first person: TODO
+* third person: TODO
+
+
+# Ledge
+
+* Ledge hanging: https://www.youtube.com/watch?v=ScRydHpovzI
+* Ledge moving: …
+
+
+# Climbing
+
+* https://www.youtube.com/watch?v=d_o5aCzxpuA
+
+
+# Ladders
+
+* https://www.youtube.com/watch?v=xeXULKMhAX4
+
+
+# Footsteps
+
+* reading material: https://www.youtube.com/watch?v=WhMfocT9l-o
+
+
+# Swimming
+
+* buoyancy: TODO
+
+
+# Climbing Stairs - Shifty's Manifesto
 
 If your character needs to be able to climb stairs, a capsule collider won't cut it [source](https://github.com/godotengine/godot-proposals/issues/2751). A cylinder is preferred. See [Shifty's Godot Character Movement Manifesto](character_controller_by_shifty.md), who describes a solution for Godot 3.  
 See implementation example for Godot 3.5: https://github.com/mrezai/GodotStairs
