@@ -26,15 +26,22 @@ types
   * cherry-picked Godot 3.6
 
 
-## Missing Features that might trouble you
-
-
-### No Navigation (jump) links
-
-**is work in progress**
+### Navigation (jump) links
 
 > Navigation links allow you to inform the navigation system about routes that don't involve traveling the surface of the navigation mesh. This can include things like jumping off surfaces, teleporters, rappelling points, or other game specific activities.  
 > ([source](https://github.com/godotengine/godot/pull/63479))
+
+
+**NOTE**: There's no signal when you enter the navigation link, therefore you need to build your own system. Usually with Areas ([example](https://www.youtube.com/watch?v=xeXULKMhAX4))
+
+
+## Problems and missing Features that might trouble you
+
+### Pathfinding ignoring Navigation Cost
+
+> Current Godot pathfinding without a custom server / module is hardcoded to AStar so you will not get good results with cost polygons and regions.  
+> AStar is a notoriously wrong algorithm for a cost based path search as it tends to miss obvious shortest paths by searching to strong in the often wrong direction directly to the target and returning with the first path it finds even if it is a very bad path.  
+> ([source](https://www.reddit.com/r/godot/comments/x10o2m/comment/imcgsm1/?utm_source=reddit&utm_medium=web2x&context=3))
 
 
 ### Cannot mark areas on NavigationRegion(s) as water, ground, etc.
