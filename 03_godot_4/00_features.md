@@ -89,7 +89,6 @@ Legend
 | ├─ NoiseTexture                | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ PlaceholderTexture2D        | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ PortableCompressedTexture2D | :heavy_check_mark: | generatable by code                                                   |                                                                                      |
-| ├─ ProxyTexture                | :ghost:            | [Insight](../01_internal_classes/textures/proxytexture.md)            |                                                                                      |
 | └─ ViewportTexture             | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Materials & Shaders**        |                    |                                                                       |                                                                                      |
 | Language: based on GLSL        | :heavy_check_mark: |                                                                       |                                                                                      |

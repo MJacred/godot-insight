@@ -17,7 +17,7 @@ The information in this reposotory aims to be as accurate as possible, therefore
 * people interested in the technical implementation details of
   * [internal classes](01_internal_classes/)
   * [exposed classes](02_classes/)
-* those who want to learn about Godot's various [systems](04_systems/) and [features](03_godot_4/_features.md) in with as much [detail](05_features_in_detail/) as possible
+* those who want to learn about Godot's various [systems](04_systems/) and [features](03_godot_4/_features.md) in as much [detail](05_features_in_detail/) as possible
   * also listing features Godot does not have, but other Engines, or features added via addons (which is often desired, as Godot tries to stay small in code size)
 * everyday users interested in
   * background info and references for most common features in [2D](07_techniques_2d/) and [3D](06_techniques_3d/) users implement all the time, e.g. a 3D Third Person Character Controller, moving platforms, etc.
