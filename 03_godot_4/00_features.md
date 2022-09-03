@@ -63,7 +63,7 @@ Legend
 | **Export**                     |                    |                                                                       |                                                                                      |
 | glTF 2.0                       | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Color**                      |                    |                                                                       |                                                                                      |
-| Color Profile Managment (ICC)  | :no_entry_sign:    | [proposal](https://github.com/godotengine/godot-proposals/issues/903) |                                                                                      |
+| Color Profile Managment (ICC)  | :no_entry_sign:    | [Proposal](https://github.com/godotengine/godot-proposals/issues/903) |                                                                                      |
 | sRGB                           | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Images & Textures**          |                    |                                                                       |                                                                                      |
 | Anisotropic                    | :heavy_check_mark: |                                                                       |                                                                                      |
@@ -172,7 +172,7 @@ Legend
 | Joint2D                        | :bookmark:         |                                                                       |                                                                                      |
 | ├─ DampedSpringJoint2D         | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ GrooveJoint2D               | :heavy_check_mark: |                                                                       |                                                                                      |
-| ├─ HingeJoint2D                | :question:         | [PR with workaround notes](https://github.com/godotengine/godot-proposals/issues/1033) |                                                                     |
+| ├─ HingeJoint2D                | :question:         | [Proposal with workaround notes](https://github.com/godotengine/godot-proposals/issues/1033) |                                                               |
 | └─ PinJoint2D                  | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Camera**                     |                    |                                                                       |                                                                                      |
 | View Frustum Culling           | :heavy_check_mark: | controlled via the Camera's near and far plane                        |                                                                                      |
