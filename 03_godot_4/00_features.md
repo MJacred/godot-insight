@@ -216,7 +216,6 @@ Legend
 | Multiplayer                    | :heavy_check_mark: | DNS, HTTP, TCP, UDP, ENet, Websockets                                 |                                                                                      |
 | Remote Procedure Call (RPC)    | :heavy_check_mark: |                                                                       |                                                                                      |
 | Peer-To-Peer (P2P)             | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/50710)                 |                                                                                      |
-| Remote Procedure Call (RPC)    | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Cinematics**                 |                    |                                                                       |                                                                                      |
 | MovieWriter                    | :heavy_check_mark: | record **non-real-time** video footage                                |                                                                                      |
 | **Miscellaneous**              |                    |                                                                       |                                                                                      |
