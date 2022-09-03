@@ -16,6 +16,7 @@ Legend
   * feature might have serious bugs or lack of certain cases (i.e. sub features missing), depending on your concrete needs
 * Hierarchies displayed below do not necessarily reflect 100% actual class inheritance. In some cases, like Mid- and Post-processing, it does not represent classes :bookmark:, but rather components :package:.
 * :ghost: deprecated / will be deleted
+* :grey_question: proposed, but not sure if needed
 
 
 | Feature                        | Implemented        | Reference (more info)                                                 | Workaround / Alternative                                                             |
@@ -171,7 +172,7 @@ Legend
 | Joint2D                        | :bookmark:         |                                                                       |                                                                                      |
 | ├─ DampedSpringJoint2D         | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ GrooveJoint2D               | :heavy_check_mark: |                                                                       |                                                                                      |
-| ├─ HingeJoint3D                | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├─ HingeJoint2D                | :grey_question:    | [PR with workaround notes](https://github.com/godotengine/godot-proposals/issues/1033) |                                                                     |
 | └─ PinJoint2D                  | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Camera**                     |                    |                                                                       |                                                                                      |
 | View Frustum Culling           | :heavy_check_mark: | controlled via the Camera's near and far plane                        |                                                                                      |
