@@ -176,7 +176,8 @@ Legend
 | └─ PinJoint2D                  | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Camera**                     |                    |                                                                       |                                                                                      |
 | View Frustum Culling           | :heavy_check_mark: | controlled via the Camera's near and far plane                        |                                                                                      |
-| Automatic Occlusion Culling    | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/48050), [intro](https://www.youtube.com/watch?v=hkE0laiXTFQ) |                                                |
+| Automatic Occlusion Culling    | :no_entry_sign:    |                                                                       |                                                                                      |
+| Baked Occlusion Culling        | :heavy_check_mark: | for static meshes, using Occluders ([PR](https://github.com/godotengine/godot/pull/48050), [intro](https://www.youtube.com/watch?v=hkE0laiXTFQ)) |           |
 | Portal Occlusion Culling       | :heavy_check_mark: |                                                                       |                                                                                      |
 | manual HLOD                    | :heavy_check_mark: | [manual HLOD using visibility ranges](https://github.com/godotengine/godot/pull/48847) |                                                                     |
 | automatic Mesh LOD             | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/44468)                 |                                                                                      |
