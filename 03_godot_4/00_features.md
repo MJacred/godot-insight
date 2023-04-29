@@ -164,7 +164,7 @@ Legend
 | Static Body                    | :heavy_check_mark: |                                                                       |                                                                                      |
 | Dynamic Bodies                 | :bookmark:         |                                                                       |                                                                                      |
 | ├─ Kinematic Body              | :heavy_check_mark: | called CharacterBody3D in Godot                                       |                                                                                      |
-| └─ Ridid Body                  | :heavy_check_mark: | called RigidDynamicBody3D in Godot                                    |                                                                                      |
+| └─ Rigid Body                  | :heavy_check_mark: | called RigidDynamicBody3D in Godot                                    |                                                                                      |
 | ........└─ VehicleBody3D       | :jack_o_lantern:   | uses arcade physics, not realistic 3D vehicle physics                 |                                                                                      |
 | PhysicalBone3D                 | :heavy_check_mark: | [Ragdolls](https://docs.godotengine.org/en/stable/tutorials/physics/ragdoll_system.html) |                                                                   |
 | SoftDynamicBody3D              | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/46937)                 |                                                                                      |
