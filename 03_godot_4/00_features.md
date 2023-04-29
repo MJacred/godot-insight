@@ -104,7 +104,12 @@ Legend
 | GPU lightmapper                | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/38386)                 |                                                                                      |
 | CPU lightmapper                | :heavy_check_mark: |                                                                       |                                                                                      |
 | Reflection Probes              | :heavy_check_mark: |                                                                       |                                                                                      |
-| Stencil Buffer                 | :no_entry_sign:    | [Proposal](https://github.com/godotengine/godot-proposals/issues/3373) |                                                                                     |
+| Buffers                        |                               | [Insight](../05_features_in_detail/buffers.md) |                                                                                     |
+| ├─ Depth Buffer (aka Z-Buffer) | :heavy_check_mark: |                                                                       |                                                                                      |
+| ├─ Fog Froxel Buffer           | :heavy_check_mark: |                       |                                                                                      |
+| ├─ Framebuffer                 | :heavy_check_mark: |                       |                                                                                      |
+| ├─ G-Buffer              | :no_entry_sign: | [Proposal](https://github.com/godotengine/godot-proposals/issues/798) |                                                                                      |
+| └─ Stencil Buffer              | :no_entry_sign: | [Proposal](https://github.com/godotengine/godot-proposals/issues/3373) |                                                                                      |
 | Screen Texture                 | :heavy_check_mark: | [Tutorial](https://docs.godotengine.org/en/stable/tutorials/shaders/screen-reading_shaders.html) |                                                           |
 | Depth Texture                  | :heavy_check_mark: | [Tutorial](https://docs.godotengine.org/en/stable/tutorials/shaders/screen-reading_shaders.html) |                                                           |
 | Motion Vectors                 | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/65418)                 |                                                                                      |
