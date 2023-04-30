@@ -8,10 +8,10 @@
 Legend
 * :heavy_check_mark: - yes
 * :no_entry_sign: - no
-* :lemon: - yes, but as addon
+* :lemon: - yes, but as plugin
   * listed in the **Workaround** column
   * lists the most well-known one
-    * addons only available in Godot 3 are given hints; those without a hint, have a version for Godot 4 in the works
+    * plugins only available in Godot 3 are given hints; those without a hint, have a version for Godot 4 in the works
 * :jack_o_lantern: - yes, but…
   * feature might have serious bugs or lack of certain cases (i.e. sub features missing), depending on your concrete needs
 * Hierarchies displayed below do not necessarily reflect 100% actual class inheritance. In some cases, like Mid- and Post-processing, it does not represent classes :bookmark:, but rather components :package:.
@@ -115,7 +115,7 @@ Legend
 | Motion Vectors                 | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/65418)                 |                                                                                      |
 | **3D Mesh**                    |                    |                                                                       |                                                                                      |
 | Shape keys / Blend Shapes      | :heavy_check_mark: | [Insight](../05_features_in_detail/blend_shapes.md)                   |                                                                                      |
-| Mesh Slicing                   | :lemon:            | Godot 3.2.1 (Godot C++ module, not a plugin) ([broken port to Godot 4](https://github.com/pooroligarch/godot-slicer)) | [CJ's Godot-Slicer](https://github.com/cj-dimaggio/godot-slicer) |
+| Mesh Slicing                   | :lemon:            | [Godot 4 (wip)](https://github.com/pooroligarch/godot-slicer), [Godot 3.2.1](https://github.com/cj-dimaggio/godot-slicer) (Godot C++ module, not a plugin) | Godot-Slicer by Teodor Potancok and CJ DiMaggio |
 | **Lighting**                   |                    |                                                                       |                                                                                      |
 | Directional Light              | :heavy_check_mark: |                                                                       |                                                                                      |
 | Spot Light                     | :heavy_check_mark: |                                                                       |                                                                                      |
@@ -146,15 +146,15 @@ Legend
 | **3D Systems**                 |                    |                                                                       |                                                                                      |
 | GridMap                        | :heavy_check_mark: | including Editor utilities                                            |                                                                                      |
 | MeshLibrary                    | :heavy_check_mark: | only for GridMap                                                      |                                                                                      |
-| Heightmap Terrain              | :lemon: :jack_o_lantern: | Godot 3.3 <= x < 4                                              | [Zylann's heightmap terrain addon](https://github.com/Zylann/godot_heightmap_plugin) |
-| Waterway System                | :lemon:            |                                                                       | [Arnklit's Waterways](https://github.com/Arnklit/Waterways)                          |
+| Heightmap Terrain              | :lemon: :jack_o_lantern: | [Godot 4](https://github.com/Zylann/godot_heightmap_plugin/tree/godot4), [Godot >= 3.3](https://github.com/Zylann/godot_heightmap_plugin) | Zylann's heightmap terrain plugin |
+| Waterway System                | :lemon:            | [Godot 4 (wip)](https://github.com/Arnklit/Waterways/tree/godot4_0), [Godot 3](https://github.com/Arnklit/Waterways) | Arnklit's Waterways |
 | Navigation                     | :jack_o_lantern:   | [Insight](../04_systems/navigation.md), [News](https://godotengine.org/article/navigation-server-godot-4-0) | (see insight)                                  |
-| Scattering Objects in Area     | :lemon:            |                                                                       | [HungryProton's Scatter](https://github.com/HungryProton/scatter)                    |
+| Scattering Objects in Area     | :lemon:            | [Godot 4](https://github.com/HungryProton/scatter), [Godot 3.3](https://github.com/HungryProton/scatter/tree/v3) | HungryProton's Scatter                    |
 | Placing Objects indiviually    | :lemon:            | Godot 3                                                               | [Zylann's Scene scattering tool](https://github.com/Zylann/godot_scatter_plugin)     |
 | Painting Objects on surfaces   | :lemon:            | Godot 3.5; HLOD via octree spatial partitioning; for Singleplayer Games; probably next in Godot 4.1 | [Dreadpon's Spatial Gardener](https://github.com/dreadpon/godot_spatial_gardener) |
-| Procedural 3D Model Generation | :lemon:            | Godot 3                                                               | [3D Generator by ProtonGraph](https://github.com/protongraph/protongraph)            |
-| Vertex Painting                | :lemon:            | Godot 3                                                               | [tomanski's Vertex Painter](https://github.com/tomankirilov/VPainter)                |
-| Texture Painting               | :lemon:            | Godot 3.4                                                             | [Edouard's Mesh Painter](https://github.com/StrayEddy/GodotPlugin-MeshPainter)       |
+| Procedural 3D Model Generation | :lemon:            | [Godot 4](https://github.com/protongraph/protongraph), [Godot 3](https://github.com/protongraph/protongraph/releases/tag/0.6.2-preview) | 3D Generator by ProtonGraph |
+| Vertex Painting                | :lemon:            | [Godot 4 (wip)](https://github.com/tomankirilov/VPainter/tree/4.x), [Godot 3](https://github.com/tomankirilov/VPainter) | tomanski's Vertex Painter          |
+| Texture Painting               | :lemon:            | [4.0 beta 2+](https://github.com/StrayEddy/GodotPlugin-MeshPainter), [Godot 3.4](https://github.com/StrayEddy/GodotPlugin-MeshPainter/tree/3.5) | Edouard's Mesh Painter |
 | **2D Systems**                 |                    |                                                                       |                                                                                      |
 | TileMap                        | :heavy_check_mark: | including Editor utilities                                            |                                                                                      |
 | **3D Physics**                 |                    |                                                                       |                                                                                      |
@@ -222,7 +222,7 @@ Legend
 | Subemitters                    | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/41810)                 |                                                                                      |
 | Collision                      | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
 | Baked SDF Collision            | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/42628)                 |                                                                                      |
-| Effekseer Support              | :lemon:            | Godot 3, [Godot 4 is planned](https://github.com/effekseer/EffekseerForGodot4) | [by Effekseer](https://github.com/effekseer/EffekseerForGodot3)             |
+| Effekseer Support              | :lemon:            | [Godot 4 (wip)](https://github.com/effekseer/EffekseerForGodot4), [Godot 3](https://github.com/effekseer/EffekseerForGodot3) | by Effekseer |
 | **Code**                       |                    |                                                                       |                                                                                      |
 | Scripting: GDScript            | :heavy_check_mark: |                                                                       |                                                                                      |
 | Language bindings              | :heavy_check_mark: | via GDExtension: C++ (17), C# (8.0 Mono; .NET 6), Rust, etc.          |                                                                                      |
