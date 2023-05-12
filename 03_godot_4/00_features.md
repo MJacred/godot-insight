@@ -40,6 +40,9 @@ Legend
 | Consoles                       | :heavy_check_mark: | [Insight](../99_export/consoles.md)                                   |                                                                                      |
 | Web                            | :heavy_check_mark: | HTML5 and WebAssembly                                                 |                                                                                      |
 | Mobile                         | :heavy_check_mark: | iOS and Android                                                       |                                                                                      |
+| **Supported Online Store APIs**     |                    |                                                                       |                                                                                      |
+| Steam                          | :lemon:            | [Godot 4 (wip)](https://github.com/Gramps/GodotSteam/tree/godot4), [Godot 3](https://github.com/Gramps/GodotSteam) | by GP (Gramps) |
+| GOG                            | :lemon:            | [Godot 3](https://github.com/pixelriot/GodotGoG)                      | by Richi (pixelriot) |
 | **XR**                         |                    |                                                                       |                                                                                      |
 | headsets                       | :heavy_check_mark: | Meta Quest, Valve Index, HTC Vive, Oculus Rift, etc.                  |                                                                                      |
 | OpenXR                         | :heavy_check_mark: |                                                                       |                                                                                      |
