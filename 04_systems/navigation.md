@@ -32,10 +32,10 @@ Like visuals and pyhsics, avoidance has Layers and Masks as well. So if two (or 
     * if the vertices are in clockwise order, the obstacle changes the incoming agent's velocity _towards_ itself. Otherwise it pushes their velocity away.
 * before 4.1: These are actually agents, that just don't move. Therefore, they only have a height and radius. [source](https://github.com/godotengine/godot/blob/master/scene/3d/navigation_obstacle_3d.cpp)
 
-dangers: agent might get stuck permanently
-* "when [an agent is] surrounded by avoidance constrains", their path is reset ([source: Known Issues / Performance](https://github.com/godotengine/godot/pull/69988)).
-* "target position is occupied by another avoidance agent or obstacle that the pathfinding is not aware of" ([source: Known Issues / Performance](https://github.com/godotengine/godot/pull/69988)).
-* "when navigation mesh edges and avoidance obstacle edges overlap": "create[s] situations with conflicting velocity interests"
+dangers: agent might get stuck permanently ([source: Known Issues / Performance](https://github.com/godotengine/godot/pull/69988))
+* "when [an agent is] surrounded by avoidance constrains", their path is reset.
+* "target position is occupied by another avoidance agent or obstacle that the pathfinding is not aware of".
+* "when navigation mesh edges and avoidance obstacle edges overlap": "create[s] situations with conflicting velocity interests".
 
 
 ### Baking
