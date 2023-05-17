@@ -1,7 +1,7 @@
 # Miscellaneous
 
 Background Info
-* With Bullet physics, the center of mass is the RigidDynamicBody3D center. With GodotPhysics, the center of mass is the average of the [CollisionShape3D] centers.
+* With Bullet physics, the center of mass is the RigidBody3D center. With GodotPhysics, the center of mass is the average of the [CollisionShape3D] centers.
 * https://www.youtube.com/watch?v=Q_miIugqx3Q
 
 Helpers
@@ -53,7 +53,7 @@ If your character needs to be able to climb stairs, a capsule collider won't cut
 See implementation example for Godot 3.5: https://github.com/mrezai/GodotStairs
 
 In Godot 4, in theory, use
-* RigidDynamicBody3D
+* RigidBody3D
     * `set_lock_rotation_enabled(true)` OR
         * sets body mode to PhysicsServer3D::BODY_MODE_DYNAMIC_LINEAR
     * `set_freeze_enabled(true)` + `set_freeze_mode(FreezeMode.FREEZE_MODE_KINEMATIC)`
