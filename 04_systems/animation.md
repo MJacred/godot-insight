@@ -8,7 +8,7 @@ https://docs.godotengine.org/en/stable/tutorials/animation/introduction.html
 ## Direction
 
 https://github.com/godotengine/godot-proposals/issues/6198
-* Blener has +Y as FORWARD, glTF changes this to +Z and Godot expects -Z
+* Blender has +Y as FORWARD, glTF changes this to +Z and Godot expects -Z
   * Fix to change orientation on import: https://github.com/godotengine/godot/pull/72753
 
 
@@ -30,32 +30,27 @@ Bugs
 
 ## Additive / Layered Animation
 
+It's important to undestand **rest** (pose) first:
+* [Docs](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/escn_exporter/skeleton.html#rest-bone)
+
+
+
 > The mainly need for Add2 is […] for inertial transitions such as adding a knockback animation to the original animation, or swinging the arm up when switching weapons, which would be unnatural with Blend2.
 > ([source](https://github.com/godotengine/godot/pull/76310#issuecomment-1518479340))
 
 
-![](https://user-images.githubusercontent.com/76781125/117551675-4c617c80-b058-11eb-8940-729907c445cf.gif)
-
-1. Walk animation
-2. Idle animation **PLUS** Reload animation
-3. Walk animation **PLUS** Reload animation
-4. Idle animation
-
-
-> If you want to use NodeAdd2 to blend animation, the difference from rest will be added unless the animation of the "in" port is rest.  
+> If you want to use NodeAdd2 to blend animation, the difference from rest [pose] will be added unless the animation of the "in" port is rest [pose].  
 > This can make the animation too exaggerated, so add a NodeSub2 to cancel the extra pose in advance and extract the delta animation.  
 > ([source](https://github.com/godotengine/godot/pull/76616))
 
 
 AnimationNodeAdd2 + [AnimationNodeSub2](https://github.com/godotengine/godot/pull/76616)
 ```
-// Base Animation
-// Second Animation on top
-// Reference Pose to fix exaggerations (often equals A)
+// A: Base Animation
+// B: Second Animation on top
+// C: Reference Pose to fix exaggerations (usually equals A)
 A + (B - C)
 ```
-
-The Reference Pose must be subtracted as a pre-calculation for the **Add2** operation.  
 
 
 ![Additive vs Blend](https://user-images.githubusercontent.com/61938263/235358998-9fca1c28-84fd-44aa-b80b-dd775c304697.png)
