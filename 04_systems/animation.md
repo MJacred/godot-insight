@@ -28,6 +28,15 @@ Bugs
 # Features - 3D
 
 
+## Root Motion
+
+* Intro: https://www.youtube.com/watch?v=j7XZ3Q8JNfM
+* Docs: https://docs.godotengine.org/en/stable/tutorials/animation/animation_tree.html#root-motion
+* Godot:
+  * https://www.youtube.com/watch?v=fq0hR2tIsRk
+  * https://www.youtube.com/watch?v=3Hk9ljcS1Ro
+
+
 ## Additive / Layered Animation
 
 It's important to undestand **rest** (pose) first:
