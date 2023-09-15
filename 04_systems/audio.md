@@ -1,13 +1,12 @@
 # Issues
 
-Godot 4 only
-* [Audio pop on looping](https://github.com/godotengine/godot/issues/64775),
-  * affecting: Ogg Vorbis, WAV, MP3
-
-Other issues: https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Aaudio
+Please see the issue tracker: https://github.com/godotengine/godot/issues/76797
 
 
 # Features
+
+Main Features are below. A detailed listing and explanation is [here](../05_features_in_detail/audio.md).
+
 
 ## Audio Buses
 
@@ -15,9 +14,4 @@ Other issues: https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue
 
 ## Audio Effects
 
-
-
-## Basic Interactive Music Support
-
-* WIP: https://github.com/godotengine/godot/pull/64488
 
