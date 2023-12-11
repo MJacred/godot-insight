@@ -41,7 +41,7 @@ Legend
 | Web                            | :heavy_check_mark: | HTML5 and WebAssembly                                                 |                                                                                      |
 | Mobile                         | :heavy_check_mark: | iOS and Android                                                       |                                                                                      |
 | **Supported Online Store APIs**     |                    |                                                                       |                                                                                      |
-| Steam                          | :lemon:            | [Godot 4](https://github.com/Gramps/GodotSteam/tree/godot4), [Godot 3.1](https://github.com/Gramps/GodotSteam) | by GP (Gramps) |
+| Steam                          | :lemon:            | [Godot 4](https://github.com/CoaguCo-Industries/GodotSteam/tree/godot4), [Godot 3.1](https://github.com/CoaguCo-Industries/GodotSteam) | by GP (Gramps) |
 | GOG                            | :lemon:            | [Godot 3](https://github.com/pixelriot/GodotGoG)                      | by Richi (pixelriot) |
 | **XR**                         |                    |                                                                       |                                                                                      |
 | headsets                       | :heavy_check_mark: | Meta Quest, Valve Index, HTC Vive, Oculus Rift, etc.                  |                                                                                      |
@@ -102,7 +102,9 @@ Legend
 | Physically-based rendering     | :heavy_check_mark: |                                                                       |                                                                                      |
 | Visual Shader Node System      | :heavy_check_mark: |                                                                       |                                                                                      |
 | Procedural PBR Materials       | :lemon:            | can also texture paint on 3D models                                   | [Material Maker - by Rodz Labs](https://github.com/RodZill4/material-maker)          |
-| Decals                         | :heavy_check_mark: |                                                                       |                                                                                      |
+| Decals                         | :heavy_check_mark: | [Godot 3](https://github.com/Master-J/DecalCo) (:lemon:)              |                                                                                      |
+| Line3D                         | :lemon:            | [Godot 3](https://github.com/dbp8890/line-renderer)                   |                                                                                      |
+| Shell Fur                      | :lemon:            | [Godot 3.4+](https://github.com/Arnklit/ShellFurGodot)                |                                                                                      |
 | Volumetric Fog                 | :heavy_check_mark: | global ([PR](https://github.com/godotengine/godot/pull/41213)) or local as an area (fog volume; [PR](https://github.com/godotengine/godot/pull/53353)) |     |
 | GPU lightmapper                | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/38386)                 |                                                                                      |
 | CPU lightmapper                | :heavy_check_mark: |                                                                       |                                                                                      |
@@ -209,7 +211,7 @@ Legend
 | ├─ Height Fog                  | :heavy_check_mark: | aerial perspective, density, color, brightness, sun piercing          |                                                                                      |
 | ├─ Glow                        | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ Boom                        | :heavy_check_mark: |                                                                       |                                                                                      |
-| ├─ Global Illumination         | :heavy_check_mark: | Signed Distance Field Global Illumination (SDFGI) or voxel-based (VoxelGI) or baked lightmap (LightmapGI) |                                                  |
+| ├─ Global Illumination         | :heavy_check_mark: | Signed Distance Field Global Illumination (SDFGI) (soon to be replaced by HDDAGI) or voxel-based (VoxelGI) or baked lightmap (LightmapGI) |                                                  |
 | ├─ Sky                         | :heavy_check_mark: |                                                                       |                                                                                      |
 | ├─ Indirect Lighting           | :heavy_check_mark: | Screen-Space Indirect Lighting                                        |                                                                                      |
 | └─ Reflections                 | :heavy_check_mark: | Screen-Space Reflections                                              |                                                                                      |
@@ -246,7 +248,8 @@ Legend
 | WorkerThreadPool               | :heavy_check_mark: |                                                                       |                                                                                      |
 | Resource/Asset streaming       | :no_entry_sign:    | [Proposal](https://github.com/godotengine/godot-proposals/issues/6307) |                                                                                     |
 | Partial Texture Update         | :no_entry_sign:    | [PR](https://github.com/godotengine/godot/pull/80164)                 |                                                                                      |
-| Octahedral Impostors           | :lemon:            | Godot 3, [Godot 4 is planned](https://github.com/wojtekpil/Godot-Octahedral-Impostors/issues/19) | [wojtekpil's impostors](https://github.com/wojtekpil/Godot-Octahedral-Impostors) |
+| Octahedral Impostors           | :lemon:            | [Godot 4.1.2](https://github.com/zhangjt93/godot-imposter), [Godot 3](https://github.com/wojtekpil/Godot-Octahedral-Impostors) |                             |
+| Measuring Tape                 | :lemon:            | [Godot 3.3](https://github.com/aaronfranke/godot-measuring-tape)      |                                                                                      |
 | Extend Engine                  | :heavy_check_mark: | Godot Modules                                                         |                                                                                      |
 | Performance Profiler           | :heavy_check_mark: |                                                                       |                                                                                      |
 | Network Profiler               | :heavy_check_mark: |                                                                       |                                                                                      |
