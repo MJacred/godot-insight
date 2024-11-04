@@ -40,6 +40,15 @@ Read about Godot 4 Features [here](03_godot_4/00_features.md).
 
 # Awesome Resources
 
+**Starter Pack**
+* Features: https://docs.godotengine.org/en/stable/about/list_of_features.html
+* Features 2: https://github.com/MJacred/godot-insight/blob/main/03_godot_4/00_features.md
+* Custom Godot Build: https://github.com/MJacred/godot-insight/blob/main/03_godot_4/01_soon_features.md
+* Tutorials: https://docs.godotengine.org/en/latest/community/tutorials.html
+* Communities: https://godotengine.org/community/
+* Plugins: https://godotengine.org/asset-library/asset
+
+Other
 * https://github.com/godotengine/awesome-godot 
 * https://project-awesome.org/godotengine/awesome-godot
 * https://github.com/hto/awesome-godot
@@ -48,4 +57,5 @@ Read about Godot 4 Features [here](03_godot_4/00_features.md).
 
 # Games and Software made with Godot
 
-https://godotengine.org/showcase
+* https://godotengine.org/showcase
+* "Made In Godot" by StayAtHomeDev on [YouTube](https://www.youtube.com/watch?v=ZrtK_3PfLsU&list=PLEHvj4yeNfeHArSU6U2a715ssJYYCnKCg).
