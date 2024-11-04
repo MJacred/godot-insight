@@ -224,6 +224,7 @@ Legend
 | **Animation**                  |                    |                                                                       |                                                                                      |
 | Vertex Animation               | :heavy_check_mark: |                                                                       |                                                                                      |
 | Blend shape Animation          | :heavy_check_mark: |                                                                       |                                                                                      |
+| Additive Animation             | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/76616)                 |                                                                                      |
 | Animation Retargeting          | :heavy_check_mark: | [News](https://godotengine.org/article/animation-retargeting-in-godot-4-0) |                                                                                 |
 | Animation Compression          | :heavy_check_mark: | [News](https://godotengine.org/article/animation-data-redesign-40)    |                                                                                      |
 | **Particle System**            |                    | [Insight](../04_systems/particles.md)                                 |                                                                                      |
