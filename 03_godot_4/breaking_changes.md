@@ -1,6 +1,6 @@
 # What is Godot 4.0?
 
-Much cose was rewritten in 4.0, not just rendering:
+Much code was rewritten in 4.0, not just rendering:
 - Core Engine (including porting to C++17)
 - Physics
   - GodotPhysics, which experienced a revival, will be replaced with [Jolt](https://github.com/godot-jolt/godot-jolt).
