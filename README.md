@@ -3,7 +3,7 @@
 This repository contains informations about the [Godot Game Engine](https://github.com/godotengine/godot).
 
 Sometimes, there's info on the Engine that currently has no place on the official github repositories or the web page, e.g. documentation on unexposed classes or information that's too technical. Consequently, this is no replacement for Godot's official documentation, but more of an addition that may or may not interest new or most Godot users.  
-I'll also briefly touch on core components to share what's there so you can get a grasp on your options.
+I'll also briefly touch on core components to share what's there and where to go, so you can get a grasp on your options.
 
 My personal interest lies in 3D, so that will be my main focus. If you want to share about 2D, please see the CONTRIBUTING guidelines and open an issue or pull request!
 

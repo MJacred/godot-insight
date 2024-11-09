@@ -9,5 +9,5 @@ Though soon™, it will become easier and you can [create GDExtension plugins fr
 
 Have a look at this [showcase](https://github.com/paddy-exe/GDExtensionSummator) on how a written GDExtension can look like and how to use it in GDScript.
 
-If you want to call GDScript from within GDExtension, afaik, you'll have to take a reference to a [`Object`](https://docs.godotengine.org/en/stable/classes/class_object.html), or one of its sub-classes.  
-`Object` has methods such as `get()` for reading properties, and `call` to call methods, and `connect` for listening to signals.
+If you want to call GDScript from within GDExtension, afaik, you'll have to take a reference to an [`Object`](https://docs.godotengine.org/en/stable/classes/class_object.html), or one of its sub-classes.  
+`Object` has methods such as `get()` for reading properties, and `call()` to call methods, and `connect()` for listening to signals.
