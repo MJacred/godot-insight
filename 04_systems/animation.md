@@ -116,8 +116,8 @@ Sub2 can only come to Godot 3 after it arrived in Godot 4 ([source](https://gith
 
 Bugs
 * https://github.com/godotengine/godot/issues/73537
-  * [ ] https://github.com/godotengine/godot/issues/70207
-    * Proposal to fix this: https://github.com/godotengine/godot-proposals/issues/5972
+  * [x] [AnimationPlayer blending and AnimationTree blending are inconsistent](https://github.com/godotengine/godot/issues/70207), fixed in [Godot 4.2](https://github.com/godotengine/godot/pull/80813)
+  * [ ] [AnimationPlayer can't queue the same animations](https://github.com/godotengine/godot/issues/72484)
 
 
 ## Animation Retargeting
