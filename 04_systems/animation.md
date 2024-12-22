@@ -34,7 +34,7 @@ Bugs
 * Docs: https://docs.godotengine.org/en/stable/tutorials/animation/animation_tree.html#root-motion
 * Godot:
   * https://www.youtube.com/watch?v=fq0hR2tIsRk
-  * https://www.youtube.com/watch?v=3Hk9ljcS1Ro
+  * https://www.youtube.com/watch?v=8hTBUNbyDEo
 
 
 ## Additive / Layered Animation
