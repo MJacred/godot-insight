@@ -36,7 +36,7 @@ Legend
 | text in right-to-left          | :heavy_check_mark: |                                                                       |                                                                                      |
 | FreeType sub-pixel anti-aliasing | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/64422)               |                                                                                      |
 | **Supported Platforms**        |                    |                                                                       |                                                                                      |
-| Desktop                        | :heavy_check_mark: | Windows, macOS, Linux, UWP, and *BSD                                  |                                                                                      |
+| Desktop                        | :heavy_check_mark: | Windows, macOS, Linux, and *BSD                                  |                                                                                      |
 | Consoles                       | :heavy_check_mark: | [Insight](../99_export/consoles.md)                                   |                                                                                      |
 | Web                            | :heavy_check_mark: | HTML5 and WebAssembly                                                 |                                                                                      |
 | Mobile                         | :heavy_check_mark: | iOS and Android                                                       |                                                                                      |
