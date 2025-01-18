@@ -17,23 +17,29 @@ These are the biggest features that you might want to use:
   * [Migeran LibGodot Feature](https://github.com/godotengine/godot/pull/90510)
     * Control Godot Engine from a host application
     * Use it for automation of development tasks
-* Resources :heavy_check_mark:: [Universalize UID support in all resource types](https://github.com/godotengine/godot/pull/97352)
 * Import: [Fix FBX runtime import](https://github.com/godotengine/godot/pull/96059) :red_circle: **salvageable**
 * Gamepad/Joypad: [Use SDL for joypad input on Linux](https://github.com/godotengine/godot/pull/87925)
   * With some adjustments, this can run on Windows and macos as well
-* Curve :heavy_check_mark:: [Extend Curve to allow for domains outside of [0, 1]](https://github.com/godotengine/godot/pull/67857)
 * Vector: [Add move_toward_smooth helper](https://github.com/godotengine/godot/pull/92236)
 * Particles
-  * [Implement particle seek request and seed options](https://github.com/godotengine/godot/pull/92089)
-    * Current state (2025-01-09): looks like it's about to be merged :orange_circle:
   * 3D only: [Add Particle System emission shapes gizmo](https://github.com/godotengine/godot/pull/86902)
 * Shaders: [Add stencil support to spatial materials](https://github.com/godotengine/godot/pull/80710)
 * Rendering
-  * [Implement LightmapGI shadowmasks](https://github.com/godotengine/godot/pull/85653) :heavy_check_mark:
   * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
-  * [Add AgX and AgX Punchy tonemapper options to Environment](https://github.com/godotengine/godot/pull/87260) :heavy_check_mark:
   * [Add Tony McMapface as a tonemapping mode](https://github.com/godotengine/godot/pull/97095)
     * Why? "[…] Linear, Reinhard and Filmic suffer from oversaturated bright lights, whereas ACES steers bright blues towards purple and can significantly darken scenes"
     * Current state (end of September 2024): https://github.com/godotengine/godot/pull/97095#issuecomment-2379582976
 * Animation: [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
 * Physics: [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
+
+
+## Features that went live
+
+starting Godot 4.4
+* Resources: [Universalize UID support in all resource types](https://github.com/godotengine/godot/pull/97352)
+* Curve: [Extend Curve to allow for domains outside of [0, 1]](https://github.com/godotengine/godot/pull/67857)
+* Particles
+  * [Implement particle seek request and seed options](https://github.com/godotengine/godot/pull/92089)
+* Rendering
+  * [Implement LightmapGI shadowmasks](https://github.com/godotengine/godot/pull/85653)
+  * [Add AgX and AgX Punchy tonemapper options to Environment](https://github.com/godotengine/godot/pull/87260)
