@@ -12,19 +12,19 @@ It's a good idea to check certain things first, before merging:
 
 
 These are the biggest features that you might want to use:
-* Workflow:
-  * [Allow creating GDExtension plugins from inside the Godot editor](https://github.com/godotengine/godot/pull/90979)
-  * [Migeran LibGodot Feature](https://github.com/godotengine/godot/pull/90510)
-    * Control Godot Engine from a host application
-    * Use it for automation of development tasks
 * Import: [Fix FBX runtime import](https://github.com/godotengine/godot/pull/96059) :red_circle: **salvageable**
-* Gamepad/Joypad: [Use SDL for joypad input on Linux](https://github.com/godotengine/godot/pull/87925)
-  * With some adjustments, this can run on Windows and macos as well
-* Vector:
-  * [Add move_toward_smooth helper](https://github.com/godotengine/godot/pull/92236)
-  * [Add rotate_toward to Vector2, Vector3, Basis and Quaternion](https://github.com/godotengine/godot/pull/82926)
+* Input
+  * [Use SDL for joypad input on Linux](https://github.com/godotengine/godot/pull/87925)
+    * With some adjustments, this can run on Windows and macos as well
+  * [Improve gamepad support on Linux](https://github.com/godotengine/godot/pull/95486)
+* Navigation
+  * [Add support for holes when triangulating HeightMapShape3D for navigation](https://github.com/godotengine/godot/pull/102215)
 * Particles
   * 3D only: [Add Particle System emission shapes gizmo](https://github.com/godotengine/godot/pull/86902)
+* Rendering
+  * [Add Tony McMapface as a tonemapping mode](https://github.com/godotengine/godot/pull/97095)
+    * Why? "[…] Linear, Reinhard and Filmic suffer from oversaturated bright lights, whereas ACES steers bright blues towards purple and can significantly darken scenes"
+    * Current state (end of September 2024): https://github.com/godotengine/godot/pull/97095#issuecomment-2379582976
 * Shaders:
   * [Add stencil support to spatial materials](https://github.com/godotengine/godot/pull/80710)
     * state: `Rebased for 4.4. Seems to work fine with the new render graph changes, but I'm not sure how to thoroughly test that.` ([2025-02-27](https://github.com/godotengine/godot/pull/80710#issuecomment-2687981855))
@@ -33,15 +33,32 @@ These are the biggest features that you might want to use:
   * [Add support for depth function in spatial materials](https://github.com/godotengine/godot/pull/73527)
     * state: `Similarly to the stencil PR, we need to first come up with a design for opaque multipass.` ([2023-10-11](https://github.com/godotengine/godot/pull/73527#issuecomment-1757689514))
   * [Custom shader templates](https://github.com/godotengine/godot/pull/94427)
-  * [Add post light function for forward pipelines (useful in toon shading)](https://github.com/godotengine/godot/pull/102708)
+* Vector:
+  * [Add move_toward_smooth helper](https://github.com/godotengine/godot/pull/92236)
+  * [Add rotate_toward to Vector2, Vector3, Basis and Quaternion](https://github.com/godotengine/godot/pull/82926)
+
+
+## Features I'm pretty sure make it in time for version 4.5
+
+> … based on gut feeling after reading latest comments / activity. Let's see how the predictions turn out…
+
+* Accessibiity
+ * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
+* Animation: [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
+* Navigation:
+  * [Add NavigationArea3D and navigation layers cost map](https://github.com/godotengine/godot/pull/102769)
+  * [Add navigation path query parameter limits](https://github.com/godotengine/godot/pull/102767)
+* Physics: [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
 * Rendering
   * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
-  * [Add Tony McMapface as a tonemapping mode](https://github.com/godotengine/godot/pull/97095)
-    * Why? "[…] Linear, Reinhard and Filmic suffer from oversaturated bright lights, whereas ACES steers bright blues towards purple and can significantly darken scenes"
-    * Current state (end of September 2024): https://github.com/godotengine/godot/pull/97095#issuecomment-2379582976
-* Animation: [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
-* Physics: [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
-* Navigation: [Add NavigationArea3D and navigation layers cost map](https://github.com/godotengine/godot/pull/102769)
+  * [[Windows] Support output to HDR monitors](https://github.com/godotengine/godot/pull/94496)
+* Shaders
+  * [Add post light function for forward pipelines (useful in toon shading)](https://github.com/godotengine/godot/pull/102708)
+* Workflow:
+  * [Allow creating GDExtension plugins from inside the Godot editor](https://github.com/godotengine/godot/pull/90979)
+  * [Migeran LibGodot Feature](https://github.com/godotengine/godot/pull/90510)
+    * Control Godot Engine from a host application
+    * Use it for automation of development tasks
 
 
 ## Features that went live
