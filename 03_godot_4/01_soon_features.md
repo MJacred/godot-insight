@@ -42,13 +42,15 @@ These are the biggest features that you might want to use:
 
 > … based on gut feeling after reading latest comments / activity. Let's see how the predictions turn out…
 
-* Accessibiity
- * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
-* Animation: [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
-* Navigation:
+* Accessibility
+  * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
+* Animation
+  * [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
+* Navigation
   * [Add NavigationArea3D and navigation layers cost map](https://github.com/godotengine/godot/pull/102769)
   * [Add navigation path query parameter limits](https://github.com/godotengine/godot/pull/102767)
-* Physics: [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
+* Physics
+  * [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
 * Rendering
   * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
   * [[Windows] Support output to HDR monitors](https://github.com/godotengine/godot/pull/94496)
