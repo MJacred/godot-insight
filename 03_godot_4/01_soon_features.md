@@ -12,19 +12,23 @@ It's a good idea to check certain things first, before merging:
 
 
 These are the biggest features that you might want to use:
-* Import: [Fix FBX runtime import](https://github.com/godotengine/godot/pull/96059) :red_circle: **salvageable**
+* 3D editing
+  * snapping
+    * [Fix "Use snap (Y)" inconsistent behavior](https://github.com/godotengine/godot/pull/91587)
+  * [Add "Follow Selection" in the 3D editor by using Center Selection twice](https://github.com/godotengine/godot/pull/99499)
 * Input
   * [Use SDL for joypad input on Linux](https://github.com/godotengine/godot/pull/87925)
     * With some adjustments, this can run on Windows and macos as well
   * [Improve gamepad support on Linux](https://github.com/godotengine/godot/pull/95486)
 * Navigation
   * [Add support for holes when triangulating HeightMapShape3D for navigation](https://github.com/godotengine/godot/pull/102215)
+    *  Current state (end of March 2025): Changes requested.
 * Particles
   * 3D only: [Add Particle System emission shapes gizmo](https://github.com/godotengine/godot/pull/86902)
 * Rendering
   * [Add Tony McMapface as a tonemapping mode](https://github.com/godotengine/godot/pull/97095)
     * Why? "[…] Linear, Reinhard and Filmic suffer from oversaturated bright lights, whereas ACES steers bright blues towards purple and can significantly darken scenes"
-    * Current state (end of September 2024): https://github.com/godotengine/godot/pull/97095#issuecomment-2379582976
+    * Current state (December 2024): [requesting a re-design](https://github.com/godotengine/godot/pull/97095#issuecomment-2554522539), there were more commits since, but no new comment on the requested re-design
 * Shaders:
   * [Add stencil support to spatial materials](https://github.com/godotengine/godot/pull/80710)
     * state: `Rebased for 4.4. Seems to work fine with the new render graph changes, but I'm not sure how to thoroughly test that.` ([2025-02-27](https://github.com/godotengine/godot/pull/80710#issuecomment-2687981855))
@@ -42,6 +46,11 @@ These are the biggest features that you might want to use:
 
 > … based on gut feeling after reading latest comments / activity. Let's see how the predictions turn out…
 
+* 3D editing
+  * snapping
+    * [Add option for Path3D to snap to colliders](https://github.com/godotengine/godot/pull/102085)
+    * [Expose 3D editor snap settings to EditorInterface](https://github.com/godotengine/godot/pull/103608)
+      * talking about grid snapping
 * Accessibility
   * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
 * Animation
@@ -54,8 +63,6 @@ These are the biggest features that you might want to use:
 * Rendering
   * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
   * [[Windows] Support output to HDR monitors](https://github.com/godotengine/godot/pull/94496)
-* Shaders
-  * [Add post light function for forward pipelines (useful in toon shading)](https://github.com/godotengine/godot/pull/102708)
 * Workflow:
   * [Allow creating GDExtension plugins from inside the Godot editor](https://github.com/godotengine/godot/pull/90979)
   * [Migeran LibGodot Feature](https://github.com/godotengine/godot/pull/90510)
@@ -73,3 +80,11 @@ starting Godot 4.4
 * Rendering
   * [Implement LightmapGI shadowmasks](https://github.com/godotengine/godot/pull/85653)
   * [Add AgX tonemapper option to Environment](https://github.com/godotengine/godot/pull/87260)
+
+
+## Salvagable Features
+
+* Import
+  * [Fix FBX runtime import](https://github.com/godotengine/godot/pull/96059)
+* Shaders
+  * [Add post light function for forward pipelines (useful in toon shading)](https://github.com/godotengine/godot/pull/102708)
