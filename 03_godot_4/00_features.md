@@ -8,6 +8,7 @@
 Legend
 * :heavy_check_mark: - yes
 * :no_entry_sign: - no
+* :no_entry: - not planned
 * :lemon: - yes, but as plugin
   * listed in the **Workaround** column
   * lists the most well-known one
@@ -27,7 +28,7 @@ Legend
 | **Accessibility**              |                    |                                                                       |                                                                                      |
 | Text-To-Speech (TTS)           | :heavy_check_mark: | on Android, iOS, HTML5, Linux, macOS, and Windows                     |                                                                                      |
 | Speech-To-Text (STT)           | :no_entry_sign:    | [Proposal](https://github.com/godotengine/godot-proposals/issues/983) |                                                                                      |
-| Screen Reader support          | :no_entry_sign:    | [Issue](https://github.com/godotengine/godot/issues/58074), [PR](https://github.com/godotengine/godot/pull/76829) |                                                                                      |
+| Screen Reader support          | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/76829), coming Godot 4.5 |                                                                                      |
 | Colorblindness simulator       | :lemon:            | Godot 3                                                               | [Paul's Colorblindness simulator](https://github.com/paulloz/godot-colorblindness)   |
 | **Fonts**                      |                    |                                                                       |                                                                                      |
 | File Formats                   | :heavy_check_mark: | .ttf, .otf, .woff1, .woff2                                            |                                                                                      |
@@ -101,7 +102,7 @@ Legend
 | ├─ PortableCompressedTexture2D | :heavy_check_mark: | generatable by code                                                   |                                                                                      |
 | └─ ViewportTexture             | :heavy_check_mark: |                                                                       |                                                                                      |
 | **Rendering**                  |                    |                                                                       |                                                                                      |
-| Compatibility (_Forward Single-Pass Rendering_) | :no_entry_sign:    | using OpenGL ES 3.0; intended for mobile, web and old GPUs that don't have Vulkan support |                                       |
+| Compatibility (_Forward Single-Pass Rendering_) | :heavy_check_mark: | using OpenGL ES 3.0; intended for mobile, web and old GPUs that don't have Vulkan support |                                       |
 | Forward+ (_Clustered Forward Rendering_) | :heavy_check_mark: |                                                                       |                                                                                      |
 | Clustered Deferred Rendering   | :no_entry_sign:    | [Proposal](https://github.com/godotengine/godot-proposals/issues/8295) |                                                                                      |
 | Rendering pipeline compositor  | :jack_o_lantern:   | [Tutorial](https://docs.godotengine.org/en/stable/tutorials/rendering/compositor.html) |                                                                     |
@@ -129,8 +130,8 @@ Legend
 | Depth Texture                  | :heavy_check_mark: | [Tutorial](https://docs.godotengine.org/en/stable/tutorials/shaders/screen-reading_shaders.html) |                                                           |
 | Drawable Textures              | :no_entry_sign:    | [PR](https://github.com/godotengine/godot-proposals/issues/7379)      |                                                           |
 | Motion Vectors                 | :heavy_check_mark: | [PR](https://github.com/godotengine/godot/pull/65418)                 |                                                                                      |
-| Tesselation                    | :no_entry_sign: | might not come to Godot, unless there's a good reason, see [here](https://github.com/godotengine/godot-proposals/issues/5995#issuecomment-1365257660) |                                                                                      |
-| Geometry Shaders (GLES 3 only) | :no_entry_sign: | but you can merge it yourself: [PR](https://github.com/godotengine/godot/pull/28237); ditched in favour of Compute Shaders ([source](https://github.com/godotengine/godot/pull/28237#issuecomment-485844909)) | |
+| Tesselation                    | :no_entry:         | might not come to Godot, unless there's a good reason, see [here](https://github.com/godotengine/godot-proposals/issues/5995#issuecomment-1365257660) |                                                                                      |
+| Geometry Shaders (GLES 3 only) | :no_entry:         | but you can merge it yourself: [PR](https://github.com/godotengine/godot/pull/28237); ditched in favour of Compute Shaders ([source](https://github.com/godotengine/godot/pull/28237#issuecomment-485844909)) | |
 | Compute Shaders                | :heavy_check_mark: | [Tutorial](https://docs.godotengine.org/en/stable/tutorials/shaders/compute_shaders.html) | |
 | **3D Mesh**                    |                    |                                                                       |                                                                                      |
 | Shape keys / Blend Shapes      | :heavy_check_mark: | [Insight](../05_features_in_detail/blend_shapes.md)                   |                                                                                      |
