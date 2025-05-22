@@ -17,8 +17,6 @@ These are the biggest features that you might want to use:
     * [Fix "Use snap (Y)" inconsistent behavior](https://github.com/godotengine/godot/pull/91587)
   * [Add "Follow Selection" in the 3D editor by using Center Selection twice](https://github.com/godotengine/godot/pull/99499)
 * Input
-  * [Use SDL for joypad input on Linux](https://github.com/godotengine/godot/pull/87925)
-    * With some adjustments, this can run on Windows and macos as well
   * [Improve gamepad support on Linux](https://github.com/godotengine/godot/pull/95486)
 * Navigation
   * [Add support for holes when triangulating HeightMapShape3D for navigation](https://github.com/godotengine/godot/pull/102215)
@@ -30,12 +28,6 @@ These are the biggest features that you might want to use:
     * Why? "[…] Linear, Reinhard and Filmic suffer from oversaturated bright lights, whereas ACES steers bright blues towards purple and can significantly darken scenes"
     * Current state (December 2024): [requesting a re-design](https://github.com/godotengine/godot/pull/97095#issuecomment-2554522539), there were more commits since, but no new comment on the requested re-design
 * Shaders:
-  * [Add stencil support to spatial materials](https://github.com/godotengine/godot/pull/80710)
-    * state: `Rebased for 4.4. Seems to work fine with the new render graph changes, but I'm not sure how to thoroughly test that.` ([2025-02-27](https://github.com/godotengine/godot/pull/80710#issuecomment-2687981855))
-    * requires fine-grained control over rendering order; potentially only merged afer the compositor is done
-    * demo: https://github.com/apples/godot-stencil-demo
-  * [Add support for depth function in spatial materials](https://github.com/godotengine/godot/pull/73527)
-    * state: `Similarly to the stencil PR, we need to first come up with a design for opaque multipass.` ([2023-10-11](https://github.com/godotengine/godot/pull/73527#issuecomment-1757689514))
   * [Custom shader templates](https://github.com/godotengine/godot/pull/94427)
 * Vector:
   * [Add move_toward_smooth helper](https://github.com/godotengine/godot/pull/92236)
@@ -51,26 +43,37 @@ These are the biggest features that you might want to use:
     * [Add option for Path3D to snap to colliders](https://github.com/godotengine/godot/pull/102085)
     * [Expose 3D editor snap settings to EditorInterface](https://github.com/godotengine/godot/pull/103608)
       * talking about grid snapping
-* Accessibility
-  * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
 * Animation
   * [Implement a Texture2D to support Lottie animation](https://github.com/godotengine/godot/pull/91580)
+* Input
+  * [Add support for SDL3 joystick input driver for Windows, Linux and MacOS](https://github.com/godotengine/godot/pull/106218)
 * Navigation
   * [Add NavigationArea3D and navigation layers cost map](https://github.com/godotengine/godot/pull/102769)
   * [Add navigation path query parameter limits](https://github.com/godotengine/godot/pull/102767)
 * Physics
   * [Add PhysicsServer2/3D::space_step() to step physics simulation manually](https://github.com/godotengine/godot/pull/76462)
 * Rendering
-  * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
   * [[Windows] Support output to HDR monitors](https://github.com/godotengine/godot/pull/94496)
+* Shaders:
+  * [Add stencil support to spatial materials](https://github.com/godotengine/godot/pull/80710)
+    * state: seems good enough, requires some code review
+    * demo: https://github.com/apples/godot-stencil-demo
+  * [Add support for depth function in spatial materials](https://github.com/godotengine/godot/pull/73527)
 * Workflow:
   * [Allow creating GDExtension plugins from inside the Godot editor](https://github.com/godotengine/godot/pull/90979)
   * [Migeran LibGodot Feature](https://github.com/godotengine/godot/pull/90510)
     * Control Godot Engine from a host application
     * Use it for automation of development tasks
+    * state: "cicd tests don't work for all platforms"
 
 
 ## Features that went live
+
+starting Godot 4.5
+* Accessibility
+  * [Implement screen reader support using AccessKit library](https://github.com/godotengine/godot/pull/76829)
+* Rendering
+  * [Implement FXAA 3.11](https://github.com/godotengine/godot/pull/89582)
 
 starting Godot 4.4
 * Resources: [Universalize UID support in all resource types](https://github.com/godotengine/godot/pull/97352)
