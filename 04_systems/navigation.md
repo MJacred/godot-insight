@@ -1,27 +1,57 @@
-# NavigationServer
+# Navigation
 
 > Godot uses [recastnavigation](https://github.com/recastnavigation/recastnavigation)'s **Recast** for creating the NavigationMesh.
 > But Godot uses RVO2 for the **Detour**.
 
-TODO: https://github.com/godotengine/godot-proposals/labels/topic%3Anavigation
+The navigation system is still experimental and thus experiences rapid changes.
+See the [roadmap](https://github.com/godotengine/godot/issues/73566) for more info on its state.
+
 
 
 ## Features
 
-## Avoidance
+### Navigation Agent
+
+To calculate a path for an NavigationAgent*, you need only to call `set_target_position()`.
+
+As the path result (including its waypoints) relies on the used navigation mesh, there might be some odd results. Especially when you use `Navigation Areas` (for more info, read that chapter).  
+Using `simplify_path` in combination with `simplify_epsilon` may help you create a more natural flowing path.
+
+To get the agent moving, use your character controller of choice.  
+And each physics step, you can call `get_next_path_position()`
+max_speed
+
+Reaching a desired destination (or a waypoint towards the destination) is not always possible, therefore
+* compare to `get_final_position()` if the targeted position is reachable. Or use `is_target_reachable()`, which also takes `target_desired_distance` into consideration.
+* `set_path_desired_distance()` aids you in reaching your target; examples
+  * some NPC (or even a player) walks and stops ontop a waypoint. The path is blocked, for now. Or worse: an item is gladed there, forever.
+  * if the value is too high, the agent may leave the navigation mesh
+    * and become lost
+    * or smash into a corner, while trying to walk around it. A big enough agent radius used to calculate the navigation mesh helps here.
+* `set_target_desired_distance()` acts the same as `set_path_desired_distance()`, but allows you to handle a different use case
+  * imagine you set the target position to some chest, or NPC. Usually, they have collisions that prevent others from walking right through them. So stopping beforehand, e.g. 1 world unit, is not that bad of an idea.
+  * the distinction to `path_desired_distance` really only matters when your target is really big, but you don't want to mess up how waypoints are handled. In this case, set it to a higher value than `path_desired_distance`. Or if your target is really "small", say infront of a shop, which usually has no collision set, use a smaller value than `path_desired_distance`.
+  * once it is reached, the `target_reached` signal is emitted
+
+Mind that some method calls on an agent re-triggers pathfinding:
+* `set_navigation_layers()`
+* `set_navigation_map()`
+* `get_next_path_position()`
+* crossing the threshold set by `set_path_max_distance()`. For more info, see chapter `Avoidance`
+
+Re-calculating a path can re-trigger some signals you already handled.
+
+Once the `navigation_finished` signal is emitted, the path is "done". As mentioned before, whether your agent reached the target or not is an entirely different matter.  
+Once this signal is emitted, pathfinding won't be tre-triggered, until you call `set_target_position()` again.
+
+
+### Avoidance
 
 Handle avoidance correctly
 * https://github.com/godotengine/godot-proposals/issues/5013#issuecomment-1199982413
 
 
-### Layers, Masks and Priority
-
-
-Like visuals and pyhsics, avoidance has Layers and Masks as well. So if two (or more) groups are on collision course (provided their layers and masks match), they'll avoid each other. The ones with a higher priority won't avoid, though. The other ones will.  
-([source](https://github.com/godotengine/godot/pull/69988))
-
-
-### Obstacles
+#### Obstacles
 
 > [NavigationObstacle2D/3D] Affect the avoidance of agents by changing their velocity. They don't block paths as they don't change the path.
 
@@ -105,24 +135,3 @@ Godot's NavigationServer does not support this (see [proposal](https://github.co
 * avoidance obstacles: "The avoidance world is currently rebuilding all static obstacles when a single static obstacle is changed cause each obstacle holds ref to some of it's neighbors which can be costly at runtime"
 
 
-# Alternative to NavigationServer
-
-## Advanced Navigation Plugin for Godot
-
-https://github.com/lampe-games/godot-advanced-navigation-plugin
-
-but
-* only works for Godot 3.x
-
-
-## godotdetour
-
-https://github.com/TheSHEEEP/godotdetour
-
-but
-* only works for Godot 3.x
-* no editor integration, coding for everything required
-* NavigationMesh generation is currently limited to one [Mesh] (see [here](https://github.com/TheSHEEEP/godotdetour/issues/5))
-
-possible usage in editor
-* create NavigationMesh using NavigationServer, export as Mesh, feed into godotdetour
