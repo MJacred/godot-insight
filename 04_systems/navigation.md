@@ -7,6 +7,20 @@ The navigation system is still experimental and thus experiences rapid changes.
 See the [roadmap](https://github.com/godotengine/godot/issues/73566) for more info on its state.
 
 
+## Basics
+
+* runs in the main thread by default, though multi-threading is supported by creating a `Thread` and call the NavigationServer2D/3D from within
+* there is no built-in time slicing queries, that has to be done by the user at the moment
+* Godot uses navigation meshes, no tiling (and therefore no hierarchical optimization). Though you can chunk navmeshes (see NavigationRegion2D/3D) and align them like tiles
+  * navigation is based on the mesh's vertices (aka edge point), therefore odd vertex placement can create odd (unnatural) paths (see `Holes` and `Navigation Areas`)
+* algorithms:
+  * AStar: takes the first path that "connects" to the target, not necessarily the optimal path
+    * travels from closest edge point to closest edge point in the direction of the target, [potentially going through navigation mesh holes](https://github.com/godotengine/godot/issues/105705#issuecomment-2952433509)
+  * Dijkstra: [is not available yet](https://github.com/godotengine/godot/pull/64326#issuecomment-1213323898)
+* As the path result (including its waypoints) relies on the used navigation mesh, there might be some odd results. Especially when you use `Navigation Areas` (for more info, read that chapter).  
+  Using `simplify_path` in combination with `simplify_epsilon` on your agents may help you create a more natural flowing path.
+
+
 
 ## Features
 
@@ -14,12 +28,12 @@ See the [roadmap](https://github.com/godotengine/godot/issues/73566) for more in
 
 To calculate a path for an NavigationAgent*, you need only to call `set_target_position()`.
 
-As the path result (including its waypoints) relies on the used navigation mesh, there might be some odd results. Especially when you use `Navigation Areas` (for more info, read that chapter).  
-Using `simplify_path` in combination with `simplify_epsilon` may help you create a more natural flowing path.
+Each physics step, you can call `get_next_path_position()` _once_ to know where your agent should go to.  
+To get the agent actually moving, you need to code the logic.
 
-To get the agent moving, use your character controller of choice.  
-And each physics step, you can call `get_next_path_position()`
-max_speed
+When can/should you call `get_next_path_position()` more than once?
+* rollbacks (because sth. unexpected happened when you tried to move your agent after getting the next position)
+
 
 Reaching a desired destination (or a waypoint towards the destination) is not always possible, therefore
 * compare to `get_final_position()` if the targeted position is reachable. Or use `is_target_reachable()`, which also takes `target_desired_distance` into consideration.
@@ -33,15 +47,23 @@ Reaching a desired destination (or a waypoint towards the destination) is not al
   * the distinction to `path_desired_distance` really only matters when your target is really big, but you don't want to mess up how waypoints are handled. In this case, set it to a higher value than `path_desired_distance`. Or if your target is really "small", say infront of a shop, which usually has no collision set, use a smaller value than `path_desired_distance`.
   * once it is reached, the `target_reached` signal is emitted
 
-Mind that some method calls on an agent re-triggers pathfinding:
-* `set_navigation_layers()`
+
+#### Path calculation and Signals
+
+Mind that many method calls on an agent re-trigger pathfinding; examples:
+* `set_navigation_layers()` & `set_navigation_layer_value`
 * `set_navigation_map()`
-* `get_next_path_position()`
+* `get_next_path_position()` (only when necessary)
 * crossing the threshold set by `set_path_max_distance()`. For more info, see chapter `Avoidance`
 
-Re-calculating a path can re-trigger some signals you already handled.
+You get notified about this in the `path_changed` signal.
 
-Once the `navigation_finished` signal is emitted, the path is "done". As mentioned before, whether your agent reached the target or not is an entirely different matter.  
+Re-calculating a path can re-trigger some signals you already handled.  
+Therefore, calling these methods while you're handling an agent signal, e.g. `waypoint_reached`, will cause an infinite recursion.
+
+**target_reached** vs **navigation_finished**  
+The `navigation_finished` signal is emitted once the path is "done". As mentioned before, whether your agent reached the target or only the closest possible navigation point are two entirely different things.  
+Note: this signal and `target_reached` are not guaranteed to be emitted in any specific order. A deferred update, for example, can help you to truly handle "target reached".  
 Once this signal is emitted, pathfinding won't be tre-triggered, until you call `set_target_position()` again.
 
 
