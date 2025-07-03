@@ -1,27 +1,115 @@
-# NavigationServer
+# Navigation
 
 > Godot uses [recastnavigation](https://github.com/recastnavigation/recastnavigation)'s **Recast** for creating the NavigationMesh.
 > But Godot uses RVO2 for the **Detour**.
 
-TODO: https://github.com/godotengine/godot-proposals/labels/topic%3Anavigation
+The navigation system is still experimental and thus experiences rapid changes.
+See the [roadmap](https://github.com/godotengine/godot/issues/73566) for more info on its state.
+
+
+## Basics
+
+* runs in the main thread by default, though multi-threading is supported by creating a `Thread` and call the NavigationServer2D/3D from within
+* there is no built-in time slicing queries, that has to be done by the user at the moment
+* Godot uses navigation meshes, no tiling (and therefore no hierarchical optimization). Though you can chunk navmeshes (see NavigationRegion2D/3D) and align them like tiles
+  * navigation is based on the mesh's vertices (aka edge point), therefore odd vertex placement can create odd (unnatural) paths (see `Holes` and `Navigation Areas`)
+* algorithms:
+  * AStar: takes the first path that "connects" to the target, not necessarily the optimal path
+    * travels from closest edge point to closest edge point in the direction of the target, [potentially going through navigation mesh holes](https://github.com/godotengine/godot/issues/105705#issuecomment-2952433509)
+  * Dijkstra: [is not available yet](https://github.com/godotengine/godot/pull/64326#issuecomment-1213323898)
+* As the path result (including its waypoints) relies on the used navigation mesh, there might be some odd results. Especially when you use `Navigation Areas` (for more info, read that chapter).  
+  Using `simplify_path` in combination with `simplify_epsilon` on your agents may help you create a more natural flowing path.
+
 
 
 ## Features
 
-## Avoidance
+### Navigation Agent
 
-Handle avoidance correctly
-* https://github.com/godotengine/godot-proposals/issues/5013#issuecomment-1199982413
+To calculate a path for an NavigationAgent*, you need only to call `set_target_position()`.
 
+Each physics step, you can call `get_next_path_position()` _once_ to know where your agent should go to.  
+To get the agent actually moving, you need to code the logic.
 
-### Layers, Masks and Priority
-
-
-Like visuals and pyhsics, avoidance has Layers and Masks as well. So if two (or more) groups are on collision course (provided their layers and masks match), they'll avoid each other. The ones with a higher priority won't avoid, though. The other ones will.  
-([source](https://github.com/godotengine/godot/pull/69988))
+When can/should you call `get_next_path_position()` more than once?
+* rollbacks (because sth. unexpected happened when you tried to move your agent after getting the next position)
 
 
-### Obstacles
+Reaching a desired destination (or a waypoint towards the destination) is not always possible, therefore
+* compare to `get_final_position()` if the targeted position is reachable. Or use `is_target_reachable()`, which also takes `target_desired_distance` into consideration.
+* `set_path_desired_distance()` aids you in reaching your target; examples
+  * some NPC (or even a player) walks and stops ontop a waypoint. The path is blocked, for now. Or worse: an item is gladed there, forever.
+  * if the value is too high, the agent may leave the navigation mesh
+    * and become lost
+    * or smash into a corner, while trying to walk around it. A big enough agent radius used to calculate the navigation mesh helps here.
+* `set_target_desired_distance()` acts the same as `set_path_desired_distance()`, but allows you to handle a different use case
+  * imagine you set the target position to some chest, or NPC. Usually, they have collisions that prevent others from walking right through them. So stopping beforehand, e.g. 1 world unit, is not that bad of an idea.
+  * the distinction to `path_desired_distance` really only matters when your target is really big, but you don't want to mess up how waypoints are handled. In this case, set it to a higher value than `path_desired_distance`. Or if your target is really "small", say infront of a shop, which usually has no collision set, use a smaller value than `path_desired_distance`.
+  * once it is reached, the `target_reached` signal is emitted
+
+
+#### Path calculation and Signals
+
+Mind that many method calls on an agent re-trigger pathfinding; examples:
+* `set_navigation_layers()` & `set_navigation_layer_value`
+* `set_navigation_map()`
+* `get_next_path_position()` (only when necessary)
+* crossing the threshold defined in `path_max_distance`: how far is an agent allowed to be pushed away from the current path segment?
+  * A too low path_max_distance resets the pathfinding all the time when agents try to avoid and a too high time_horizon predicts a velocity consistent in that direction for x-seconds. The avoidance does not know that you will change this velocity on the next frame again. ([source](https://www.reddit.com/r/godot/comments/13o5br4/comment/jl5iv90/))
+
+
+You get notified about this in the `path_changed` signal.
+
+Re-calculating a path can re-trigger some signals you already handled.  
+Therefore, calling these methods while you're handling an agent signal, e.g. `waypoint_reached`, will cause an infinite recursion.
+
+**target_reached** vs **navigation_finished**  
+The `navigation_finished` signal is emitted once the path is "done". As mentioned before, whether your agent reached the target or only the closest possible navigation point are two entirely different things.  
+Note: this signal and `target_reached` are not guaranteed to be emitted in any specific order. A deferred update, for example, can help you to truly handle "target reached".  
+Once this signal is emitted, pathfinding won't be tre-triggered, until you call `set_target_position()` again.
+
+
+### Avoidance
+
+> … is neither a part of pathfinding, nor a means to changing paths: this system is more like an evasion/dodge reflex.
+
+What makes the avoidance so different from the above?  
+`get_next_path_position()` only tells you where to go to in a static and void world. Avoidance fills this world with other agents, and obstacles.  
+You tell it where you want to go to and which speed (i.e. the desired velocity), and it tells you what the safe version of your velocity _should be_.  
+It basically goes like this:
+* you connect some `agent_parent.callable()` to the `agent.velocity_computed` signal in `agent_parent._ready()`, and
+* in `agent_parent.physics_process()` you call `agent.set_velocity()`
+* your `agent_parent.callable()` receives this "safe" velocity, which
+* you can pass to `CharacterBody.move_and_slide()`, or `RigidBody.linear_velocity` (though you shouldn't change `linear_velocity` too often…)
+
+
+So, how do we configure our "safe" velocity using an agent's properties?
+* first things first: enable it calling `set_avoidance_enabled(true)`
+* knowing when to even think about avoiding: basically everybody who's too close for comfort. These are called "neighbors".
+  * `neighbor_distance`: the distance threshold between agent positions, *ignoring* their dimensions, until they are considered neighbors
+    * `max_neighbors`: Stop avoiding all agents who would be neighbors after having found x of them.
+      * If `neighbor_distance` is too far and this value too low in comparison, you can miss out on closer neighbors
+* call `set_velocity`:
+  * the desired velocity based on `get_next_path_position()`, your agent's desired movement speed (not to be confused with `agent.max_speed`), gravity, etc.
+* safe velocity calculation
+  * using an **agent's avoidance shape** to know the bounds
+    * `radius`: the agent's physical body radius. Is usually equal, or similar, to the agent radius you set for baking a particular `NavigationMesh`
+      * **does not affect the avoidance threshold**, see `neighbor_distance`
+    * `height`: works together with `radius` and the parent's UP position to create a cylinder body.
+  * if `keep_y_velocity` is `true`, then the safe velocity will contain the velocity.y value you set in `set_velocity`.
+    * Should be `true` on uneven ground, else you can set it to `false`.
+  * the property `max_speed` clamps the safe velocity's magnitude.
+  * increasing `time_horizon_agents` and `time_horizon_obstacles` (both in seconds), increases the agent's reaction time by decreasing the velocity's speed.
+  * `use_3d_avoidance`: **this flag should be the same for all agents** that should interact with eachother, as they cannot avoid each other
+    * the biggest difference to 2D avoidance: respects velocity on the UP-axis. Therefore, **it's suitable for 3D maneuvers in e.g. water and space**.
+* the result: emittance of the "safe" velocity via signal `velocity_computed`
+
+NOTES
+* only call avoidance-related properties when it's needed: always check `if agent.avoidance_enabled`; also when receiving signal of `agent.velocity_computed`
+* on teleportation
+  * change the position of this node's parent, then call
+  * `set_velocity()`, and
+  * `set_velocity_forced()`
 
 > [NavigationObstacle2D/3D] Affect the avoidance of agents by changing their velocity. They don't block paths as they don't change the path.
 
@@ -105,24 +193,3 @@ Godot's NavigationServer does not support this (see [proposal](https://github.co
 * avoidance obstacles: "The avoidance world is currently rebuilding all static obstacles when a single static obstacle is changed cause each obstacle holds ref to some of it's neighbors which can be costly at runtime"
 
 
-# Alternative to NavigationServer
-
-## Advanced Navigation Plugin for Godot
-
-https://github.com/lampe-games/godot-advanced-navigation-plugin
-
-but
-* only works for Godot 3.x
-
-
-## godotdetour
-
-https://github.com/TheSHEEEP/godotdetour
-
-but
-* only works for Godot 3.x
-* no editor integration, coding for everything required
-* NavigationMesh generation is currently limited to one [Mesh] (see [here](https://github.com/TheSHEEEP/godotdetour/issues/5))
-
-possible usage in editor
-* create NavigationMesh using NavigationServer, export as Mesh, feed into godotdetour
