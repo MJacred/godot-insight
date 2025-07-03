@@ -54,7 +54,9 @@ Mind that many method calls on an agent re-trigger pathfinding; examples:
 * `set_navigation_layers()` & `set_navigation_layer_value`
 * `set_navigation_map()`
 * `get_next_path_position()` (only when necessary)
-* crossing the threshold set by `set_path_max_distance()`. For more info, see chapter `Avoidance`
+* crossing the threshold defined in `path_max_distance`: how far is an agent allowed to be pushed away from the current path segment?
+  * A too low path_max_distance resets the pathfinding all the time when agents try to avoid and a too high time_horizon predicts a velocity consistent in that direction for x-seconds. The avoidance does not know that you will change this velocity on the next frame again. ([source](https://www.reddit.com/r/godot/comments/13o5br4/comment/jl5iv90/))
+
 
 You get notified about this in the `path_changed` signal.
 
@@ -69,11 +71,45 @@ Once this signal is emitted, pathfinding won't be tre-triggered, until you call 
 
 ### Avoidance
 
-Handle avoidance correctly
-* https://github.com/godotengine/godot-proposals/issues/5013#issuecomment-1199982413
+> … is neither a part of pathfinding, nor a means to changing paths: this system is more like an evasion/dodge reflex.
+
+What makes the avoidance so different from the above?  
+`get_next_path_position()` only tells you where to go to in a static and void world. Avoidance fills this world with other agents, and obstacles.  
+You tell it where you want to go to and which speed (i.e. the desired velocity), and it tells you what the safe version of your velocity _should be_.  
+It basically goes like this:
+* you connect some `agent_parent.callable()` to the `agent.velocity_computed` signal in `agent_parent._ready()`, and
+* in `agent_parent.physics_process()` you call `agent.set_velocity()`
+* your `agent_parent.callable()` receives this "safe" velocity, which
+* you can pass to `CharacterBody.move_and_slide()`, or `RigidBody.linear_velocity` (though you shouldn't change `linear_velocity` too often…)
 
 
-#### Obstacles
+So, how do we configure our "safe" velocity using an agent's properties?
+* first things first: enable it calling `set_avoidance_enabled(true)`
+* knowing when to even think about avoiding: basically everybody who's too close for comfort. These are called "neighbors".
+  * `neighbor_distance`: the distance threshold between agent positions, *ignoring* their dimensions, until they are considered neighbors
+    * `max_neighbors`: Stop avoiding all agents who would be neighbors after having found x of them.
+      * If `neighbor_distance` is too far and this value too low in comparison, you can miss out on closer neighbors
+* call `set_velocity`:
+  * the desired velocity based on `get_next_path_position()`, your agent's desired movement speed (not to be confused with `agent.max_speed`), gravity, etc.
+* safe velocity calculation
+  * using an **agent's avoidance shape** to know the bounds
+    * `radius`: the agent's physical body radius. Is usually equal, or similar, to the agent radius you set for baking a particular `NavigationMesh`
+      * **does not affect the avoidance threshold**, see `neighbor_distance`
+    * `height`: works together with `radius` and the parent's UP position to create a cylinder body.
+  * if `keep_y_velocity` is `true`, then the safe velocity will contain the velocity.y value you set in `set_velocity`.
+    * Should be `true` on uneven ground, else you can set it to `false`.
+  * the property `max_speed` clamps the safe velocity's magnitude.
+  * increasing `time_horizon_agents` and `time_horizon_obstacles` (both in seconds), increases the agent's reaction time by decreasing the velocity's speed.
+  * `use_3d_avoidance`: **this flag should be the same for all agents** that should interact with eachother, as they cannot avoid each other
+    * the biggest difference to 2D avoidance: respects velocity on the UP-axis. Therefore, **it's suitable for 3D maneuvers in e.g. water and space**.
+* the result: emittance of the "safe" velocity via signal `velocity_computed`
+
+NOTES
+* only call avoidance-related properties when it's needed: always check `if agent.avoidance_enabled`; also when receiving signal of `agent.velocity_computed`
+* on teleportation
+  * change the position of this node's parent, then call
+  * `set_velocity()`, and
+  * `set_velocity_forced()`
 
 > [NavigationObstacle2D/3D] Affect the avoidance of agents by changing their velocity. They don't block paths as they don't change the path.
 
