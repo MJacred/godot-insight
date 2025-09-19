@@ -15,3 +15,5 @@ Issue Tracker: https://github.com/godotengine/godot/issues/63198
 * lip sync
 * modular characters
 * simple linear vertex animations (i.e. without bones)
+
+https://www.youtube.com/watch?v=upnc50wMja8
