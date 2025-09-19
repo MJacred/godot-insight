@@ -8,3 +8,6 @@ This [GDExtension template](https://github.com/nathanfranke/gdextension) can get
 Though soon™, it will become easier and you can [create GDExtension plugins from inside the Godot editor](https://github.com/godotengine/godot/pull/90979).
 
 Have a look at this [showcase](https://github.com/paddy-exe/GDExtensionSummator) on how a written GDExtension can look like and how to use it in GDScript.
+
+You can find some summaries/tips on using GDExtension [here](../12_scripting/02_gdextension.md).
+

@@ -1,14 +1,71 @@
+## Folder structure
+
+### Addon
+
+Example setup:
+```
+my-repository/
+├─ godot-cpp/
+├─ project/
+│  ├─ addons/
+│    ├─ my_addon/
+│      ├─ bin/
+│      ├─ resources/
+│      ├─ src/
+│      ├─ plugin.cfg
+│      ├─ my_addon.gdextension
+├─ src/
+│  ├─ register_types.cpp
+│  ├─ register_types.h
+├─ README.md
+```
+
+folders explained
+* `godot-cpp`: the git submodule required for GDExtension
+* `src` on top-level: where you put your `register_types.*` files and everything else that's needed when running the exported game
+* `project`: everything that's required to use the addon while using the editor
+  * `addons/my_addon`
+    * `bin`: this folder and its content are generated automatically (using your C++ files in `src` from top-level)
+    * `resources`: where your image/audio/localization files are placed; you can add more sub-folders to separate them
+    * `src`: GDScript files to control the UI elements and other editor-related things that don't require the speed of C++
+
+
+files explained
+* `my_addon.gdextension`: holds your extension's…
+  * configuration: your icon path, minimum required Godot version, the `entry_symbol`
+    * the entry symbol is what you wrote in your `register_types.cpp` file after `GDExtensionBool GDE_EXPORT` at the start of the `extern "C"` scope
+  * library paths: where your C++ code compiled libraries are stored (`.so`, `.dll`, etc. files), per platform
+    * they are placed automatically in `"res://addons/my_addon/bin`
+* `register_types.cpp`
+  * you only need to register the classes that are in the top-level `src` folder
+
+
+## Setup
+
+```
+# in your terminal, change directory to your project
+
+# get godot-cpp by banch
+git submodule add -b 4.4 https://github.com/godotengine/godot-cpp.git godot-cpp
+
+# init
+git submodule update --init
+```
+
+Your IDE will not find the godot-cpp class files, therefore you need to setup your IDE accordingly:  
+https://docs.godotengine.org/en/latest/contributing/development/configuring_an_ide/index.html#toc-devel-configuring-an-ide
+
 ## File content structure
 
-Using Godot's namespace will shorten your code considerably:
-```cpp
-using namespace godot;
-```
-Alternatively, put your code into Godot's namespace:
+Usually, put your header code into Godot's namespace (especially when creating custom Nodes):
 ```cpp
 namespace godot {
     // Your code.
 }
+```
+Using Godot's namespace in the class body files (and header file, if you don't define it in `namespace godot`. It will shorten your code considerably:
+```cpp
+using namespace godot;
 ```
 
 
@@ -117,6 +174,22 @@ image.instantiate();
 ```
 
 
+Casting generic node to the one you need:
+```cpp
+TypedArray<Node> controls = my_node->find_children("*", "Control");
+
+for (int i = 0; i < controls.size(); i++) {
+	Control *control = Object::cast_to<Control>(controls[i]);
+	// etc.
+}
+```
+
+
+Callable: https://github.com/godotengine/godot-cpp/pull/1155
+```cpp
+
+```
+
 Calling GDScript from within GDExtension
 ```cpp
 // You'll need to reference an [`Object`](https://docs.godotengine.org/en/stable/classes/class_object.html), or one of its sub-classes.
@@ -137,3 +210,9 @@ PackedInt32Array
 
 Good examples
 * https://github.com/TokisanGames/Terrain3D/blob/main/SConstruct
+
+
+## Notes
+
+https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/what_is_gdextension.html
+hot reloading: https://github.com/godotengine/godot/pull/80284
