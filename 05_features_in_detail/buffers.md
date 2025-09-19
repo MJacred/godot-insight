@@ -1,5 +1,9 @@
 ## Framebuffer
 
+https://github.com/godotengine/godot/issues/869
+https://www.reddit.com/r/godot/comments/9iny1j/is_it_possible_to_use_custom_framebuffers/
+
+
 Notes
 * The [Viewport](https://docs.godotengine.org/en/stable/classes/class_viewport.html) usually uses a framebuffer, except you set [viewport_set_render_direct_to_screen](https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-method-viewport-set-render-direct-to-screen) to `true`. ([source](https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-method-viewport-attach-to-screen))
 * [FramebufferCache](https://github.com/godotengine/godot/pull/63951)
