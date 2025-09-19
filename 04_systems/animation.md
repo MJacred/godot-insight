@@ -124,3 +124,8 @@ Bugs
 
 * [Proposal](https://github.com/godotengine/godot-proposals/issues/4510)
 * [PR](https://github.com/godotengine/godot/pull/63854)
+* https://github.com/godotengine/godot/pull/97824
+
+external tools
+* https://github.com/scottpetrovic/mesh2motion-app/
+
