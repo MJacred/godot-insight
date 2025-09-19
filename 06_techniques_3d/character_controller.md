@@ -14,6 +14,18 @@ Examples
 Related Addons
 * https://github.com/godot-extended-libraries/godot-interpolated-camera3d
 
+TODO:
+* https://www.reddit.com/r/godot/comments/wo054c/why_do_so_many_tutorials_make_use_of_ray_casts_to/
+* https://www.reddit.com/r/godot/comments/wh95ko/stickysnappy_movement_with_joystick/
+* https://www.youtube.com/watch?v=2GvqqxW7ark
+* https://www.youtube.com/watch?v=w01WtpyOqY0
+
+
+char controller: https://www.youtube.com/watch?v=e94KggaEAr4&list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&index=1
+
+parkour: https://www.youtube.com/watch?v=JNJumLLxnO4
+
+
 
 # Camera
 
